@@ -1,0 +1,37 @@
+.price {
+	padding: .2rem .3rem;
+
+	&--type {
+		&--primary {
+			color: var(--ant-primary-color);
+			font-weight: 600;
+		}
+
+		&--crossed {
+			color: #AAA;
+			text-decoration: line-through;
+			font-weight: 100;
+		}
+
+		&--discount {
+			color: #FFF;
+			background-color: #000;
+			font-weight: 100;
+		}
+	}
+
+	&--size {
+		&--small {
+			font-size: 1rem;
+		}
+
+		&--middle {
+			font-size: 1.3rem;
+		}
+
+		&--large {
+			font-size: 1.65rem;
+			font-weight: 600;
+		}
+	}
+}
