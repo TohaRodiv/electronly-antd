@@ -1,0 +1,1 @@
+export type TAvailabilityType = "in-stock" | "out-stock" | "under-order"

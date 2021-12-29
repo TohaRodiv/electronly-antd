@@ -1,0 +1,23 @@
+.section {
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		
+		padding: .5rem;
+	}
+
+	&__head {
+		margin: 0 !important;
+
+		&-inner {
+			display: flex;
+			align-items: center;
+			gap: .5rem;
+		}
+	}
+
+	&__icon {
+		font-size: 1.5rem;
+	}
+}

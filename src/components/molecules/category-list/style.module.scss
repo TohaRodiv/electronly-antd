@@ -1,0 +1,41 @@
+.category-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	&__item {
+		height: 100%;
+		flex: 1 250px;
+	}
+
+	&__block {
+		height: 100%;
+	}
+}
+
+.category-list-item {
+	display: flex;
+	border: 1px solid;
+	padding: 1.5rem 1rem;
+	justify-content: center;
+	border-radius: var(--border-radius);
+
+	&__body {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	&__icon {
+		font-size: 2rem;
+	}
+
+	&__title {
+		font-size: 1.5rem;
+	}
+}

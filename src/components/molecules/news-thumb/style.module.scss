@@ -1,0 +1,10 @@
+.news-thumb {
+	display: flex;
+	flex-direction: column;
+
+	&__image {
+		width: 100%;
+		height: 200px;
+		object-fit: contain;
+	}
+}

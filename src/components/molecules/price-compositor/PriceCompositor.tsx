@@ -8,9 +8,6 @@ type TProps = {
 	discount?: number
 }
 
-/**
- * TODO: Передлать расчет скидки
- */
 const PriceCompositor: FC<TProps> = ({
 	primary,
 	crossed,

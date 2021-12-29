@@ -1,5 +1,6 @@
 import { FC } from "react";
 import NextLink, { LinkProps } from "next/link";
+import AnchorLink from "antd/lib/anchor/AnchorLink";
 
 type TProps = LinkProps & {
 	text?: string

@@ -1,0 +1,1 @@
+export { NewsThumb } from "./NewsThumb";

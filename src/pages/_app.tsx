@@ -1,5 +1,5 @@
 import { AppLayout } from "#templates/app-layout";
-import { ConfigProvider } from "antd";
+import { BackTop, ConfigProvider } from "antd";
 import type { AppProps } from "next/app"
 import { useRouter } from "next/router";
 import { ReactElement, ReactNode, useEffect } from "react";
@@ -52,6 +52,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
 		<ConfigProvider>
 			<AppProvider>
 				{getLayout(<Component {...pageProps} />)}
+				<BackTop />
 			</AppProvider>
 		</ConfigProvider>
 	);
