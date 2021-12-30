@@ -1,24 +1,23 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { RequestHandler } from "#services/backend/RequestHandler/RequestHandler";
+import { RequestHandler } from "#services/backend/RequestHandler";
 
 
 const handlerCategories = (req: NextApiRequest, res: NextApiResponse) => {
 	const requestHandler = new RequestHandler(req);
 
-
-	requestHandler.get(() => {
+	requestHandler.GET((_params) => {
 		res
 			.status(200)
 			.json({ name: 'John Doe' });
 	});
 
-	requestHandler.post(() => {
+	requestHandler.POST((_body) => {
 		res
 			.status(200)
 			.json({ name: 'John Doe' });
 	});
 
-	requestHandler.customMethod("PUT", () => {
+	requestHandler.DELETE((_query) => {
 		res
 			.status(200)
 			.json({ name: 'John Doe' });

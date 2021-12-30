@@ -32,7 +32,7 @@
 			"./src/components/context/*"
 		],
 		"#services/*": [
-			"./src/components/services/*"
+			"./src/services/*"
 		]
 	}
   },
