@@ -3,7 +3,7 @@ import { RequestHandler } from "#services/backend/RequestHandler";
 
 
 const handlerCategories = (req: NextApiRequest, res: NextApiResponse) => {
-	const requestHandler = new RequestHandler(req);
+	const requestHandler = new RequestHandler(req, res);
 
 	requestHandler.GET((_params) => {
 		res
@@ -14,7 +14,7 @@ const handlerCategories = (req: NextApiRequest, res: NextApiResponse) => {
 	requestHandler.POST((_body) => {
 		res
 			.status(200)
-			.json({ name: 'John Doe' });
+			.json({ ..._body });
 	});
 
 	requestHandler.DELETE((_query) => {
