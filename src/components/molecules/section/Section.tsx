@@ -1,19 +1,21 @@
 import { FC, ReactElement } from "react";
 import styles from "./style.module.scss";
 import classNames from "classnames";
-import { Space } from "antd";
 import Title from "antd/lib/typography/Title";
+import { Space } from "#molecules/space";
 
 
 type TProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
 	icon?: ReactElement
 	title?: string | ReactElement
+	buttons?: ReactElement[]
 }
 
-const Section: FC <TProps> = ({
+const Section: FC<TProps> = ({
 	className,
 	icon,
 	title,
+	buttons,
 	children,
 	...props
 }) => {
@@ -36,6 +38,17 @@ const Section: FC <TProps> = ({
 			<article className={styles["section__article"]}>
 				{children}
 			</article>
+			{
+				buttons && (
+					<footer className={styles["section__footer"]}>
+						<Space display="flex" justifyContent="center">
+							{
+								buttons
+							}
+						</Space>
+					</footer>
+				)
+			}
 		</section>
 	);
 };

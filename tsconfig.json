@@ -28,8 +28,11 @@
 		"#templates/*": [
 			"./src/components/templates/*"
 		],
-		"#context": [
+		"#context/*": [
 			"./src/components/context/*"
+		],
+		"#services/*": [
+			"./src/components/services/*"
 		]
 	}
   },

@@ -1,23 +1,38 @@
 .section {
-	&__header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		
-		padding: .5rem;
+	border: 1px solid #000;
+
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: .5rem;
+		border-bottom: 1px solid #000;
+    }
+
+    &__head {
+        margin: 0 !important;
+
+        &-inner {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+    }
+
+    &__icon {
+        font-size: 1.5rem;
+    }
+
+	&__header + &__article {
+		padding: .5rem 0;
 	}
 
-	&__head {
-		margin: 0 !important;
-
-		&-inner {
-			display: flex;
-			align-items: center;
-			gap: .5rem;
-		}
-	}
-
-	&__icon {
-		font-size: 1.5rem;
-	}
+    &__footer {
+        padding: .5rem;
+    }
 }

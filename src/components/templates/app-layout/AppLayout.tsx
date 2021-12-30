@@ -20,9 +20,9 @@ const AppLayout: FC<TProps> = ({
 
 			<AppContent
 				className={styles["app-layout__main"]}>
-					{children}
-				</AppContent>
-				
+				{children}
+			</AppContent>
+
 			<AppFooter
 				className={styles["app-layout__footer"]} />
 		</Layout>

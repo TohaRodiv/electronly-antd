@@ -5,13 +5,21 @@
 	justify-content: center;
 	border-radius: var(--border-radius);
 	overflow: hidden;
+	// min-width: 250px;
+	flex: 1 300px;
 
 	&--size {
-		&--small {}
+		&--small {
+			font-size: .8rem;
+		}
 
-		&--middle {}
+		&--middle {
+			font-size: 1rem;
+		}
 
-		&--large {}
+		&--large {
+			font-size: 1.2rem;
+		}
 	}
 
 	&__image {
@@ -40,7 +48,10 @@
 
 	&__title {
 		color: #FFF !important;
-		font-size: 2.5rem !important;
+		font-size: 2.5em !important;
 		font-weight: 600;
+		line-height: 1 !important;
+		margin: 0 !important;
+		text-align: center;
 	}
 }

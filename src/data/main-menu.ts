@@ -6,7 +6,15 @@ type TMainMenuItem = {
 
 export const mainMenu: TMainMenuItem[] = [
 	{
+		path: "/",
+		title: "Главная",
+	},
+	{
 		path: "/catalog",
 		title: "Каталог",
+	},
+	{
+		path: "/news",
+		title: "Новости",
 	},
 ];
