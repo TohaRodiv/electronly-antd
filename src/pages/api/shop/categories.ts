@@ -1,26 +1,19 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { RequestHandler } from "#services/backend/RequestHandler";
+import { CategoryService } from "#services/backend/api/shop/CategoryService";
 
 
 const handlerCategories = (req: NextApiRequest, res: NextApiResponse) => {
 	const requestHandler = new RequestHandler(req, res);
 
-	requestHandler.GET((_params) => {
-		res
-			.status(200)
-			.json({ name: 'John Doe' });
-	});
+	requestHandler.GET(async () => {
+		const { payload, error, } = await CategoryService.getMany();
 
-	requestHandler.POST((_body) => {
-		res
-			.status(200)
-			.json({ ..._body });
-	});
-
-	requestHandler.DELETE((_query) => {
-		res
-			.status(200)
-			.json({ name: 'John Doe' });
+		if (error) {
+			res.status(error.statusCode).json(error);
+		} else {
+			res.status(200).json(payload);
+		}
 	});
 };
 

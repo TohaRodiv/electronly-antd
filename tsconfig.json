@@ -33,6 +33,15 @@
 		],
 		"#services/*": [
 			"./src/services/*"
+		],
+		"#repositories/*": [
+			"./src/repositories/*"
+		],
+		"#types/*": [
+			"./src/types/*"
+		],
+		"#data/*": [
+			"./src/data/*"
 		]
 	}
   },
