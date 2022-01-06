@@ -9,13 +9,15 @@ type TProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTML
 const Container: FC <TProps> = ({
 	children,
 	fluid,
+	className,
 	...props
 }) => {
 	const classes = classNames(
 		styles.container,
 		{
 			[styles["container--fluid"]]: fluid
-		}
+		},
+		className,
 	);
 
 	return (

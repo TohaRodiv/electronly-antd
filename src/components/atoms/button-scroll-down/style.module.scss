@@ -1,0 +1,30 @@
+@keyframes sdb04 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  20% {
+    transform: rotate(-45deg) translate(-10px, 10px);
+  }
+  40% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+.button-scroll-down {
+  padding-top: 60px;
+
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+	border-color: var(--ant-primary-1);
+    transform: rotate(-45deg);
+    animation: sdb04 2s infinite;
+    box-sizing: border-box;
+  }
+}

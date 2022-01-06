@@ -1,51 +1,44 @@
 import { Container } from "#atoms/container";
+import { ProductService } from "#services/backend/api/shop/ProductService";
+import { TProduct } from "#types/products/TProduct";
 import { Form, Input, InputNumber, Button } from "antd";
-import { NextPage } from "next";
+import { NextPage, NextPageContext } from "next";
+import { OrderPage } from "src/components/pages/order-page/OrderPage";
 
-const Order: NextPage = ({ }) => {
+type TProps = {
+	product: TProduct | null
+}
 
-	/* eslint-disable no-template-curly-in-string */
-	const validateMessages = {
-		required: '${label} is required!',
-		types: {
-			email: '${label} is not a valid email!',
-			number: '${label} is not a valid number!',
-		},
-		number: {
-			range: '${label} must be between ${min} and ${max}',
-		},
-	};
+type TSProps = {
+	props: TProps
+}
 
-	const onFinish = (values: any) => {
-		console.log(values);
-	};
+const NextOrderPage: NextPage<TProps> = ({
+	product,
+}) => {
+
 
 	return (
-		<Container>
-			<Form name="nest-messages" onFinish={onFinish} validateMessages={validateMessages} layout="vertical" style={{ maxWidth: "600px", margin: "0 auto" }}>
-				<Form.Item name={['user', 'name']} label="Name" rules={[{ required: true }]}>
-					<Input />
-				</Form.Item>
-				<Form.Item name={['user', 'email']} label="Email" rules={[{ type: 'email' }]}>
-					<Input />
-				</Form.Item>
-				<Form.Item name={['user', 'age']} label="Age" rules={[{ type: 'number', min: 0, max: 99 }]}>
-					<InputNumber />
-				</Form.Item>
-				<Form.Item name={['user', 'website']} label="Website">
-					<Input />
-				</Form.Item>
-				<Form.Item name={['user', 'introduction']} label="Introduction">
-					<Input.TextArea />
-				</Form.Item>
-				<Form.Item>
-					<Button type="primary" htmlType="submit">
-						Submit
-					</Button>
-				</Form.Item>
-			</Form>
-		</Container>
+		product && (
+			<OrderPage product={product} />
+		)
 	);
 };
 
-export default Order;
+export const getServerSideProps = async (ctx: NextPageContext): Promise<TSProps> => {
+	const props: TProps = {
+		product: null,
+	};
+
+	const productId = +(ctx.query && ctx.query.id || false);
+
+	if (isFinite(productId) && productId > 0) {
+		props.product = (await ProductService.findById(productId)).payload;
+	}
+
+	return {
+		props,
+	};
+};
+
+export default NextOrderPage;

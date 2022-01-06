@@ -14,7 +14,7 @@ const AppLayout: FC<TProps> = ({
 	...props
 }) => {
 	return (
-		<Layout {...props}>
+		<Layout {...props} className={styles["app-layout"]}>
 			<AppHeader
 				className={styles["app-layout__header"]} />
 

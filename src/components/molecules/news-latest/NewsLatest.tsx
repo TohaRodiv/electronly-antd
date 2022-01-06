@@ -18,7 +18,7 @@ const NewsLatest: FC<TProps> = ({
 	news,
 }) => {
 	return (
-		<Section title={news.title} icon={<AppstoreOutlined />} buttons={[<Button>Тест</Button>, <Button>Тест</Button>]}>
+		<Section title={news.title} icon={<AppstoreOutlined />}>
 			<Container>
 				<img
 					style={{

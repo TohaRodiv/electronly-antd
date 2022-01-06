@@ -1,3 +1,5 @@
+@import "./../../_settings/settings";
+
 .category-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -8,7 +10,7 @@
 
 	&__item {
 		height: 100%;
-		flex: 1 250px;
+		flex: 1 150px;
 	}
 
 	&__block {
@@ -18,24 +20,39 @@
 
 .category-list-item {
 	display: flex;
-	border: 1px solid;
 	padding: 1.5rem 1rem;
 	justify-content: center;
+	align-items: center;
 	border-radius: var(--border-radius);
+	
 
 	&__body {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		gap: 1rem;
 	}
 
-	&__icon {
-		font-size: 2rem;
+	&__image {
+		transition: 350ms;
 	}
 
 	&__title {
-		font-size: 1.5rem;
+		@include custom-head();
+		font-size: 1rem !important;
+		color: var(--ant-primary-color);
+		text-align: center;
+		transition: 350ms;
+	}
+
+	&:hover &__title {
+		color: var(--ant-primary-color-hover);
+		transition: 350ms;
+	}
+
+	&:hover &__image {
+		transform: translateY(-3px);
+		transition: 350ms;
 	}
 }

@@ -1,0 +1,19 @@
+@import "./../../_settings/settings";
+
+.news-page {
+	&__image {
+		object-fit: contain;
+		max-width: 100%;
+		display: block;
+		margin: 0 auto 1rem auto;
+
+		@include media("md") {
+			float: left;
+			margin: 0 1rem 0 0;
+		};
+	}
+
+	&__title {}
+
+	&__content {}
+}

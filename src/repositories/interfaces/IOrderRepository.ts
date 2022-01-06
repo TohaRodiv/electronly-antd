@@ -1,4 +1,4 @@
-import { CreateOrderDTO } from "#services/backend/api/shop/dto/CreateOrderDTO";
+import { CreateOrderDTO } from "#services/dto/CreateOrderDTO";
 import { TResultFetch } from "../types";
 
 export interface IOrderRepository {

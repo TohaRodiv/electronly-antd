@@ -3,7 +3,7 @@ import { BasicProps, Header } from "antd/lib/layout/layout";
 import { FC, useEffect, useState } from "react";
 import classNames from "classnames";
 import { MainMenu } from "#molecules/main-menu";
-import { MenuOutlined } from "@ant-design/icons";
+import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
 import { DrawerCatalog } from "#organisms/drawer-catalog";
 import styles from "./style.module.scss";
 import { AppLogo } from "#molecules/app-logo";
@@ -27,6 +27,9 @@ const AppHeader: FC<TProps> = ({
 
 	const classes = classNames(styles["app-header"], className);
 
+	/**
+	 * @TODO: Реализовать поиск
+	 */
 	return (
 		<>
 			<Header className={classes} {...props}>
@@ -37,6 +40,7 @@ const AppHeader: FC<TProps> = ({
 						{
 							show && <MainMenu className={styles["app-header__main-menu"]} />
 						}
+						{/* <SearchOutlined /> */}
 					</div>
 				</Container>
 			</Header>

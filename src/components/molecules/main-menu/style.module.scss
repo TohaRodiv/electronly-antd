@@ -1,0 +1,11 @@
+.main-menu {
+	overflow: hidden;
+	background-color: var(--ant-primary-color) !important;
+	color: var(--ant-primary-1) !important;
+	font-variant: all-small-caps !important;
+	font-weight: 600;
+	
+	&__icon--collapsed {
+		transform: scale(2);
+	}
+}

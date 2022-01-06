@@ -4,7 +4,7 @@
 }
 
 #nprogress .bar {
-  background: var(--ant-primary-color);
+  background: var(--ant-primary-color-active);
 
   position: fixed;
   z-index: 1031;
@@ -22,7 +22,7 @@
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px var(--ant-primary-color), 0 0 5px var(--ant-primary-color);
+  box-shadow: 0 0 10px var(--ant-primary-color-active), 0 0 5px var(--ant-primary-color-active);
   opacity: 1;
 
   transform: rotate(3deg) translate(0px, -4px);

@@ -1,6 +1,6 @@
 import { TProduct } from "src/types/products/TProduct";
 
-export const products: TProduct[] = [
+export const products = [
 	{
 		id: 1,
 		name: "Product 1",

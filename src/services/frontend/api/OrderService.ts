@@ -4,7 +4,7 @@ import { BaseAPIService } from "./BaseAPIService";
 
 export const OrderService = new class extends BaseAPIService {
 	async createAndSave(dto: CreateOrderDTO): Promise<TResultFetch<any>> {
-		return await this.fetch("/orders", {
+		return await this.fetch("/shop/orders", {
 			method: "POST",
 			body: JSON.stringify(dto),
 			headers: new Headers({ "Content-Type": "application/json" }),

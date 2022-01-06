@@ -17,6 +17,11 @@ import { TArticles } from "#types/articles/TArticles";
 import { TCategories } from "#types/categories/TCategories";
 import { CategoryService } from "#services/backend/api/shop/CategoryService";
 import { NewsLatest } from "#molecules/news-latest";
+import Title from "antd/lib/typography/Title";
+import { MainCarousel } from "#molecules/main-carousel";
+import { TBanner } from "#types/banner/TBanner";
+import { BannerService } from "#services/backend/api/promo/BannerService";
+import { banners } from "#data/banners";
 
 type TProps = {
 	news: TArticles | null
@@ -28,15 +33,22 @@ type TSProps = {
 	props: TProps
 }
 
-const Home: NextPage<TProps> = ({
+const HomePage: NextPage<TProps> = ({
 	news,
 	products,
 	categories,
 }) => {
 	return (
-		<Container>
+		<>
+			{
+				banners && (
+					<>
+						<MainCarousel banners={banners} scrollTo="section-categories" />
+					</>
+				)
+			}
 			{/* TODO: Переделать баннера */}
-			{/* <Section>
+			{/* <Section theme="dark">
 				<Space display="flex">
 					<Banner image={bannerImage1} title="Далеко-далеко, за словесными" path="/" size="small" />
 					<Banner image={bannerImage1} title="Далеко-далеко за словесными горами в стране гласных" path="/" size="small" />
@@ -44,21 +56,38 @@ const Home: NextPage<TProps> = ({
 			</Section> */}
 			{
 				categories && categories.length && (
-					<Section title="Категории" icon={<AppstoreOutlined />}>
+					<Section theme="dark" id="section-categories">
 						<Container>
-							<CategoryList categories={categories} />
+							<Section.Header>
+								<Title level={3}>
+									<Space>
+										<AppstoreOutlined />
+										Категории
+									</Space>
+								</Title>
+							</Section.Header>
+							<Section.Body>
+								<CategoryList categories={categories} />
+							</Section.Body>
 						</Container>
 					</Section>
 				)
 			}
 			{
 				products && products.length && (
-					<Section
-						title="Популярные"
-						icon={<StarOutlined />}
-						buttons={[<Button key="btn-1">Тест</Button>, <Button key="btn-2">Тест</Button>]}>
+					<Section theme="light">
 						<Container>
-							<ProductList products={products} />
+							<Section.Header>
+								<Title level={3}>
+									<Space>
+										<StarOutlined />
+										Новинки
+									</Space>
+								</Title>
+							</Section.Header>
+							<Section.Body>
+								<ProductList products={products} />
+							</Section.Body>
 						</Container>
 					</Section>
 				)
@@ -69,14 +98,24 @@ const Home: NextPage<TProps> = ({
 			</Section> */}
 			{
 				news && news.length && (
-					<Section title="Новости" icon={<ReadOutlined />}>
+					<Section theme="light">
 						<Container>
-							<NewsList news={news} />
+							<Section.Header>
+								<Title level={3}>
+									<Space>
+										<ReadOutlined />
+										Новости
+									</Space>
+								</Title>
+							</Section.Header>
+							<Section.Body>
+								<NewsList news={news} />
+							</Section.Body>
 						</Container>
 					</Section>
 				)
 			}
-		</Container>
+		</>
 	);
 };
 
@@ -89,12 +128,11 @@ export const getServerSideProps = async (): Promise<TSProps> => {
 
 	props.news = (await NewsService.getMany()).payload;
 	props.products = (await ProductService.getMany()).payload;
-	props.categories = (await (await CategoryService.getMany()).payload);
-	// props.banners = (await BannerService.getMany()).payload;
+	props.categories = (await CategoryService.getMany()).payload;
 
 	return {
 		props,
 	};
 };
 
-export default Home;
+export default HomePage;

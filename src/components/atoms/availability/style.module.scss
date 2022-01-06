@@ -1,13 +1,13 @@
 .availability {
 	&--in-stock {
-		color: green;
+		color: var(--ant-success-color);
 	}
 
 	&--out-stock {
-		color: #cfcf2f;
+		color: var(--ant-warning-color);
 	}
 
 	&--under-order {
-		color: red;
+		color: var(--ant-error-color);
 	}
 }

@@ -1,7 +1,7 @@
 import { IOrderRepository } from "../../interfaces/IOrderRepository";
-import { CreateOrderDTO } from "#services/backend/api/shop/dto/CreateOrderDTO";
 import { BaseRepository } from "../BaseRepository";
 import { TResultFetch } from "../../types";
+import { CreateOrderDTO } from "#services/dto/CreateOrderDTO";
 
 export class OrderRepository extends BaseRepository implements IOrderRepository {
 	async findById(id: number): Promise<TResultFetch<any>> {
@@ -12,7 +12,7 @@ export class OrderRepository extends BaseRepository implements IOrderRepository 
 		return await this.fetch("/shop/orders", {
 			method: "POST",
 			body: JSON.stringify(dto),
-			headers: new Headers({ "Content-Type": "application/json" }),
+			headers: { "Content-Type": "application/json" },
 		});
 	}
 }

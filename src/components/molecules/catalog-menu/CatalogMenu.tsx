@@ -1,27 +1,51 @@
-import { Menu, MenuProps } from "antd";
-import { FC } from "react";
+import { Menu, MenuProps, message, Spin } from "antd";
+import { FC, ReactNode, useEffect, useState } from "react";
 import classNames from "classnames";
-import { catalogMenu } from "src/data/catalog-menu";
 import { Link } from "#atoms/link";
+import { ShopCategoryService } from "#services/frontend/api/ShopCategoryService";
+import { TCategories } from "#types/categories/TCategories";
+import { LoadingOutlined } from "@ant-design/icons";
 
-type TProps = MenuProps & {}
+type TProps = MenuProps & {
+	icon?: ReactNode
+}
 
 const CatalogMenu: FC<TProps> = ({
 	className,
+	icon,
 	...props
 }) => {
 	const classes = classNames(className);
+	const [categories, setCategories] = useState<TCategories | null>(null);
+
+	useEffect(() => {
+		(async () => {
+			const { payload, error, } = await ShopCategoryService.getMany();
+
+			if (error) {
+				message.error(`Произошла ошибка, зайдите на сайт позже. ${error.message}`);
+			} else {
+				setCategories(payload);
+			}
+		})();
+	}, []);
 
 	return (
-		<Menu className={classes} {...props}>
-			{
-				catalogMenu.map((menuItem, menuIndex) => (
-					<Menu.Item key={`${menuItem.path}-${menuIndex}`}>
-						<Link href={menuItem.path} text={menuItem.title} />
-					</Menu.Item>
-				))
-			}
-		</Menu>
+		<Spin
+			indicator={<LoadingOutlined />}
+			spinning={!!!categories}>
+			<Menu
+				selectable={false}
+				className={classes} {...props}>
+				{
+					categories && categories.map((category, menuIndex) => (
+						<Menu.Item key={`${category.id}`} icon={icon}>
+							<Link href={`/catalog/${category.id}`} text={category.title} />
+						</Menu.Item>
+					))
+				}
+			</Menu>
+		</Spin>
 	);
 };
 
