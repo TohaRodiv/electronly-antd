@@ -22,8 +22,8 @@ const AppFooter: FC<TProps> = ({
 	return (
 		<Footer className={classes} {...props}>
 			<Container>
-				<Row gutter={24}>
-					<Col sm={6}>
+				<Row gutter={[12, 8]}>
+					<Col  xs={24} lg={6}>
 						<Title level={5} className={styles["app-footer__head"]}>Electronly - интернет-магазин электроники</Title>
 						<Paragraph className={styles["app-footer__description"]}>
 							Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Заглавных они рот раз рекламных агентство ведущими снова, это речью власти, точках страну приставка, проектах запятых города своих родного оксмокс гор. Продолжил?
