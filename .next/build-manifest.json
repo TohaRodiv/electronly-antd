@@ -5,9 +5,9 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/WKj__DQZLpw93TQhX3QRP/_buildManifest.js",
-    "static/WKj__DQZLpw93TQhX3QRP/_ssgManifest.js",
-    "static/WKj__DQZLpw93TQhX3QRP/_middlewareManifest.js"
+    "static/u1Wx1w1J0cFBEUPLCZgvE/_buildManifest.js",
+    "static/u1Wx1w1J0cFBEUPLCZgvE/_ssgManifest.js",
+    "static/u1Wx1w1J0cFBEUPLCZgvE/_middlewareManifest.js"
   ],
   "pages": {
     "/": [
@@ -19,14 +19,14 @@
       "static/chunks/222-9363f1fb232661dc.js",
       "static/chunks/522-51dca6c5253fce99.js",
       "static/css/fcec6d22259fa311.css",
-      "static/chunks/pages/index-4c8d676e2b0014cc.js"
+      "static/chunks/pages/index-9a9a5ca437fa9c15.js"
     ],
     "/_app": [
       "static/chunks/webpack-378e68e29c265886.js",
       "static/chunks/framework-dc33c0b5493501f0.js",
       "static/chunks/main-c4f520d698d32637.js",
       "static/css/3656dfb9f44a977a.css",
-      "static/chunks/pages/_app-53b7a9908a53ad5b.js"
+      "static/chunks/pages/_app-5f45fe40a779411a.js"
     ],
     "/_error": [
       "static/chunks/webpack-378e68e29c265886.js",
@@ -40,7 +40,7 @@
       "static/chunks/framework-dc33c0b5493501f0.js",
       "static/chunks/main-c4f520d698d32637.js",
       "static/css/4700d4dd0e9a60ca.css",
-      "static/chunks/pages/about-ddb8b160098ba82e.js"
+      "static/chunks/pages/about-081177cd9af05bfc.js"
     ],
     "/catalog/[[...id]]": [
       "static/chunks/webpack-378e68e29c265886.js",
@@ -56,7 +56,7 @@
       "static/chunks/framework-dc33c0b5493501f0.js",
       "static/chunks/main-c4f520d698d32637.js",
       "static/css/4700d4dd0e9a60ca.css",
-      "static/chunks/pages/contacts-eebc29a3d894323c.js"
+      "static/chunks/pages/contacts-99a07c45e7196735.js"
     ],
     "/news": [
       "static/chunks/webpack-378e68e29c265886.js",
@@ -90,7 +90,7 @@
       "static/chunks/framework-dc33c0b5493501f0.js",
       "static/chunks/main-c4f520d698d32637.js",
       "static/css/4700d4dd0e9a60ca.css",
-      "static/chunks/pages/payment-and-delivery-62c4f8c0defb0df0.js"
+      "static/chunks/pages/payment-and-delivery-2a384a9c2498575d.js"
     ],
     "/product/[id]": [
       "static/chunks/webpack-378e68e29c265886.js",

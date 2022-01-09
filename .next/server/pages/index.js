@@ -215,12 +215,15 @@ const MainCarousel = ({ banners , scrollTo ,  })=>{
 ;// CONCATENATED MODULE: ./src/components/molecules/main-carousel/index.ts
 
 
+// EXTERNAL MODULE: ./src/data/about.ts
+var about = __webpack_require__(1879);
 ;// CONCATENATED MODULE: ./src/data/banners.ts
+
 const banners = [
     {
         id: 1,
-        title: "Заголовок слайдера номер 1",
-        subtitle: "Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные. Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные. Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные.",
+        title: `${about/* about.name */.j.name} - ${about/* about.shortDescription */.j.shortDescription}`,
+        subtitle: about/* about.fullDescription */.j.fullDescription,
         image: "/banners/hero-1.jpg",
         images: [
             {
@@ -231,8 +234,8 @@ const banners = [
     },
     {
         id: 2,
-        title: "Заголовок слайдера номер 2",
-        subtitle: "Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные.Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные.",
+        title: `${about/* about.name */.j.name} - ${about/* about.shortDescription */.j.shortDescription}`,
+        subtitle: about/* about.fullDescription */.j.fullDescription,
         image: "/banners/hero-2.webp",
         images: [
             {
@@ -250,8 +253,6 @@ var Paragraph_ = __webpack_require__(1774);
 var Paragraph_default = /*#__PURE__*/__webpack_require__.n(Paragraph_);
 // EXTERNAL MODULE: external "next-seo"
 var external_next_seo_ = __webpack_require__(6641);
-// EXTERNAL MODULE: ./src/data/about.ts
-var about = __webpack_require__(1879);
 ;// CONCATENATED MODULE: ./src/pages/index.tsx
 
 

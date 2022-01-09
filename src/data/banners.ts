@@ -1,10 +1,11 @@
 import { TBanner } from "#types/banner/TBanner";
+import { about } from "./about";
 
 export const banners: TBanner[] = [
 	{
 		id: 1,
-		title: "Заголовок слайдера номер 1",
-		subtitle: "Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные. Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные. Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные.",
+		title: `${about.name} - ${about.shortDescription}`,
+		subtitle: about.fullDescription,
 		image: "/banners/hero-1.jpg",
 		images: [
 			{
@@ -15,8 +16,8 @@ export const banners: TBanner[] = [
 	},
 	{
 		id: 2,
-		title: "Заголовок слайдера номер 2",
-		subtitle: "Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные.Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные.",
+		title: `${about.name} - ${about.shortDescription}`,
+		subtitle: about.fullDescription,
 		image: "/banners/hero-2.webp",
 		images: [
 			{

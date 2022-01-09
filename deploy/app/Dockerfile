@@ -11,7 +11,5 @@ RUN npm install
 # Копирование файлов проекта
 COPY . .
 
-RUN npm run build
-
 # Запуск проекта
 CMD npm run start
