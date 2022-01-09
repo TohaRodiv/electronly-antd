@@ -1,14 +1,10 @@
 import { Container } from "#atoms/container";
-import { Banner } from "#molecules/banner";
 import { CategoryList } from "#molecules/category-list/CategoryList";
 import { NewsList } from "#molecules/news-list";
 import { ProductList } from "#molecules/product-list";
-import { Button, Divider } from "antd";
 import type { NextPage } from "next";
-import bannerImage1 from "../../public/banners/banner-1.jpg";
-import bannerImage1_1600 from "../../public/banners/banner-1-1600.jpg";
 import { Section } from "#molecules/section";
-import { AppstoreOutlined, ReadOutlined, StarOutlined } from "@ant-design/icons";
+import { AppstoreOutlined, ReadOutlined, SearchOutlined, StarOutlined } from "@ant-design/icons";
 import { Space } from "#molecules/space";
 import { NewsService } from "#services/backend/api/blog/NewsService";
 import { ProductService } from "#services/backend/api/shop/ProductService";
@@ -16,12 +12,13 @@ import { TProducts } from "#types/products/TProducts";
 import { TArticles } from "#types/articles/TArticles";
 import { TCategories } from "#types/categories/TCategories";
 import { CategoryService } from "#services/backend/api/shop/CategoryService";
-import { NewsLatest } from "#molecules/news-latest";
 import Title from "antd/lib/typography/Title";
 import { MainCarousel } from "#molecules/main-carousel";
-import { TBanner } from "#types/banner/TBanner";
-import { BannerService } from "#services/backend/api/promo/BannerService";
 import { banners } from "#data/banners";
+import { TrackingOrderForm } from "#molecules/tracking-order-form";
+import Paragraph from "antd/lib/typography/Paragraph";
+import { NextSeo } from "next-seo";
+import { about } from "#data/about";
 
 type TProps = {
 	news: TArticles | null
@@ -40,39 +37,34 @@ const HomePage: NextPage<TProps> = ({
 }) => {
 	return (
 		<>
+			<NextSeo
+				description={about.fullDescription} />
 			{
 				banners && (
 					<>
-						<MainCarousel banners={banners} scrollTo="section-categories" />
+						<MainCarousel banners={banners} scrollTo="tracking-order" />
 					</>
 				)
 			}
-			{/* TODO: Переделать баннера */}
-			{/* <Section theme="dark">
-				<Space display="flex">
-					<Banner image={bannerImage1} title="Далеко-далеко, за словесными" path="/" size="small" />
-					<Banner image={bannerImage1} title="Далеко-далеко за словесными горами в стране гласных" path="/" size="small" />
-				</Space>
-			</Section> */}
-			{
-				categories && categories.length && (
-					<Section theme="dark" id="section-categories">
-						<Container>
-							<Section.Header>
-								<Title level={3}>
-									<Space>
-										<AppstoreOutlined />
-										Категории
-									</Space>
-								</Title>
-							</Section.Header>
-							<Section.Body>
-								<CategoryList categories={categories} />
-							</Section.Body>
-						</Container>
-					</Section>
-				)
-			}
+			<Section theme="dark" id="tracking-order">
+				<Container>
+					<Section.Header>
+						<Title level={3}>
+							<Space>
+								<SearchOutlined />
+								Поиск заказа
+							</Space>
+						</Title>
+					</Section.Header>
+					<Section.Body>
+						<Paragraph style={{ color: "var(--ant-primary-1)", }}>
+							Заказывали ранее у нас? Введите номер заказа, чтобы проверить его статус.
+						</Paragraph>
+						<TrackingOrderForm size="large" theme="light" />
+					</Section.Body>
+				</Container>
+			</Section>
+
 			{
 				products && products.length && (
 					<Section theme="light">
@@ -92,10 +84,25 @@ const HomePage: NextPage<TProps> = ({
 					</Section>
 				)
 			}
-			{/* TODO: Переделать баннера */}
-			{/* <Section>
-				<Banner image={bannerImage1_1600} title="Vercel title" path="/" />
-			</Section> */}
+			{
+				categories && categories.length && (
+					<Section theme="dark">
+						<Container>
+							<Section.Header>
+								<Title level={3}>
+									<Space>
+										<AppstoreOutlined />
+										Категории
+									</Space>
+								</Title>
+							</Section.Header>
+							<Section.Body>
+								<CategoryList categories={categories} />
+							</Section.Body>
+						</Container>
+					</Section>
+				)
+			}
 			{
 				news && news.length && (
 					<Section theme="light">

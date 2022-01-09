@@ -1,0 +1,5 @@
+@import "../../_settings/settings";
+
+.contact-menu {
+  @include footer-list;
+}

@@ -1,57 +1,61 @@
-import { Menu, MenuProps, message, Spin } from "antd";
-import { FC, ReactNode, useEffect, useState } from "react";
+import { List, ListProps, Spin } from "antd";
+import { FC, ReactNode, } from "react";
 import classNames from "classnames";
 import { Link } from "#atoms/link";
-import { ShopCategoryService } from "#services/frontend/api/ShopCategoryService";
-import { TCategories } from "#types/categories/TCategories";
 import { LoadingOutlined } from "@ant-design/icons";
+import styles from "./style.module.scss";
+import { Space } from "#molecules/space";
+import { AppContext } from "src/context/AppContext";
 
-type TProps = MenuProps & {
+type TProps = ListProps<any> & {
 	icon?: ReactNode
+	theme?: "light" | "dark"
 }
 
 const CatalogMenu: FC<TProps> = ({
 	className,
 	icon,
+	theme,
 	...props
 }) => {
-	const classes = classNames(className);
-	const [categories, setCategories] = useState<TCategories | null>(null);
-
-	useEffect(() => {
-		(async () => {
-			const { payload, error, } = await ShopCategoryService.getMany();
-
-			if (error) {
-				message.error(`Произошла ошибка, зайдите на сайт позже. ${error.message}`);
-			} else {
-				setCategories(payload);
-			}
-		})();
-	}, []);
+	const classes = classNames(
+		styles["catalog-menu"],
+		{
+			[styles[`catalog-menu--theme--${theme}`]]: !!theme,
+		},
+		className
+	);
 
 	return (
-		<Spin
-			indicator={<LoadingOutlined />}
-			spinning={!!!categories}>
-			<Menu
-				selectable={false}
-				className={classes} {...props}>
-				{
-					categories && categories.map((category, menuIndex) => (
-						<Menu.Item key={`${category.id}`} icon={icon}>
-							<Link href={`/catalog/${category.id}`} text={category.title} />
-						</Menu.Item>
-					))
-				}
-			</Menu>
-		</Spin>
+		<AppContext.Consumer>
+			{({ categories }) => (
+				<Spin
+					indicator={<LoadingOutlined />}
+					spinning={!!!categories}>
+					<List
+						className={classes}
+						{...props}>
+						{
+							categories && categories.map((category) => (
+								<List.Item key={`category-${category.id}`} className={styles["catalog-menu__item"]}>
+									<Link href={`/catalog/${category.id}`} className={styles["catalog-menu__link"]}>
+										<Space>
+											{icon}
+											{category.title}
+										</Space>
+									</Link>
+								</List.Item>
+							))
+						}
+					</List>
+				</Spin>
+			)}
+		</AppContext.Consumer>
 	);
 };
 
 CatalogMenu.defaultProps = {
 	theme: "light",
-	mode: "inline",
 };
 
 export { CatalogMenu };

@@ -1,4 +1,5 @@
 import { Container } from "#atoms/container"
+import { about } from "#data/about"
 import { NewsList } from "#molecules/news-list"
 import { Section } from "#molecules/section"
 import { NewsService } from "#services/backend/api/blog/NewsService"
@@ -6,6 +7,7 @@ import { TArticles } from "#types/articles/TArticles"
 import { ReadOutlined } from "@ant-design/icons"
 import Title from "antd/lib/typography/Title"
 import { NextPage } from "next"
+import { NextSeo } from "next-seo"
 
 type TProps = {
 	news: TArticles | null
@@ -19,20 +21,25 @@ const NewsPage: NextPage<TProps> = ({
 	news,
 }) => {
 	return (
-		<Section>
-			<Container>
-				<Section.Header>
-					<Title level={3}>Новости</Title>
-				</Section.Header>
-				<Section.Body>
-					{
-						news && (
-							<NewsList news={news} />
-						)
-					}
-				</Section.Body>
-			</Container>
-		</Section>
+		<>
+			<NextSeo
+				description={about.fullDescription}
+				title="Новости" />
+			<Section>
+				<Container>
+					<Section.Header>
+						<Title level={3}>Новости</Title>
+					</Section.Header>
+					<Section.Body>
+						{
+							news && (
+								<NewsList news={news} />
+							)
+						}
+					</Section.Body>
+				</Container>
+			</Section>
+		</>
 	);
 };
 

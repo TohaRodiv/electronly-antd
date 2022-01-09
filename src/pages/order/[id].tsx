@@ -1,7 +1,5 @@
-import { Container } from "#atoms/container";
 import { ProductService } from "#services/backend/api/shop/ProductService";
 import { TProduct } from "#types/products/TProduct";
-import { Form, Input, InputNumber, Button } from "antd";
 import { NextPage, NextPageContext } from "next";
 import { OrderPage } from "src/components/pages/order-page/OrderPage";
 
@@ -19,9 +17,7 @@ const NextOrderPage: NextPage<TProps> = ({
 
 
 	return (
-		product && (
-			<OrderPage product={product} />
-		)
+		<OrderPage product={product} />
 	);
 };
 

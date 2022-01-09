@@ -7,6 +7,8 @@ import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
 import { DrawerCatalog } from "#organisms/drawer-catalog";
 import styles from "./style.module.scss";
 import { AppLogo } from "#molecules/app-logo";
+import { Button, Popover } from "antd";
+import { ProductSearchForm } from "#molecules/product-search-form";
 
 type TProps = BasicProps & {}
 
@@ -40,7 +42,12 @@ const AppHeader: FC<TProps> = ({
 						{
 							show && <MainMenu className={styles["app-header__main-menu"]} />
 						}
-						{/* <SearchOutlined /> */}
+						<Popover
+							placement="bottomLeft"
+							title="Поиск в каталоге"
+							content={<ProductSearchForm enterButton={<Button icon={<SearchOutlined />} type="primary" ghost />} />}>
+							<SearchOutlined />
+						</Popover>
 					</div>
 				</Container>
 			</Header>

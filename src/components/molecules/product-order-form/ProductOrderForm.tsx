@@ -1,6 +1,8 @@
+import { validateMessages } from "#data/validate-messages";
 import { CreateOrderDTO } from "#services/dto/CreateOrderDTO";
 import { OrderService } from "#services/frontend/api/OrderService";
 import { getPreparedFields } from "#services/frontend/form/getPreparedFields";
+import { TOrder } from "#types/order/TOrder";
 import { TProduct } from "#types/products/TProduct";
 import { ThunderboltOutlined } from "@ant-design/icons";
 import { Form, Input, Button, message } from "antd";
@@ -9,36 +11,27 @@ import InputMask from "react-input-mask";
 
 type TProps = {
 	product: TProduct
+	onOrder?: (order: TOrder) => void
 }
 
 const ProductOrderForm: FC<TProps> = ({
 	product,
+	onOrder,
 }) => {
 
 	const [loading, setLoading] = useState(false);
 
-	const validateMessages = {
-		required: "${label} обязателен!",
-		types: {
-			email: "Неверный формат E-mail!",
-		},
-		pattern: {
-			mismatch: "Неверный формат!",
-		},
-		string: {
-			min: "${label} должно быть больше ${min} символов"
-		}
-	};
-
 	const onFinish = async (fields: any) => {
 		setLoading(true);
+
 		const data = getPreparedFields(fields) as CreateOrderDTO;
-		const { error, payload } = await OrderService.createAndSave(data);
-		
+		const { error, payload }: { error: any, payload: TOrder } = await OrderService.createAndSave(data);
+
 		if (error) {
 			message.error(`Произошла ошибка: ${error.message}. Код: ${error.statusCode}`);
 		} else {
-			message.success(`Ваша заявка успешно отправилась! Ваш id заказа: ${payload.id}`);
+			message.success("Ваша заявка успешно отправилась!");
+			onOrder && onOrder(payload);
 		}
 
 		setLoading(false);

@@ -1,0 +1,16 @@
+.tracking-order-form {
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	&__input-order {
+		flex: 1;
+		max-width: 600px;
+	}
+
+	&__form-item {
+		margin: 0;
+	}
+}

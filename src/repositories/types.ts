@@ -1,5 +1,9 @@
+import { QueryFilter, QueryFilterArr, SCondition } from "@nestjsx/crud-request"
+
 export type TFindManyOptions = {
 	limit: number
+	filter?: QueryFilter | QueryFilter[] | Array<QueryFilter | QueryFilterArr>
+	search?: SCondition
 }
 
 export type TResponse = {

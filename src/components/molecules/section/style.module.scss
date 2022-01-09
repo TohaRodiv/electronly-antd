@@ -39,10 +39,10 @@
 
   &--theme {
     &--light {
-      background-color: var(--ant-primary-2);
+      background-color: var(--ant-primary-1);
 
       & .section__header {
-        border-bottom-color: var(--ant-primary-1);
+        border-bottom-color: #EEE;
       }
     }
 

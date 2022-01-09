@@ -4,12 +4,13 @@ import { BaseRepository } from "../BaseRepository";
 
 export class ProductRepository extends BaseRepository implements IProductRepository {
 	public async findMany(options: TFindManyOptions): Promise<any> {
-		const { limit, } = options;
+		const { limit, filter, search, } = options;
 		
 		const params =
 			this.getQueryBuilder()
 				.setLimit(limit || 10)
 				.setFilter({ field: "active", operator: "$eq", value: true })
+				.search(search || {})
 				.query();
 
 		const res = await this.fetch(`/shop/products/?${params}`);

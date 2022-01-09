@@ -3,13 +3,15 @@ import { BasicProps, Footer } from "antd/lib/layout/layout";
 import { FC } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import { Col, Row } from "antd";
+import { Col, Menu, Row } from "antd";
 import Title from "antd/lib/typography/Title";
-import { MainMenu } from "#molecules/main-menu";
+import { MainMenu, MainMenuList } from "#molecules/main-menu";
 import { CatalogMenu } from "#molecules/catalog-menu";
 import { ThunderboltOutlined } from "@ant-design/icons";
 import Paragraph from "antd/lib/typography/Paragraph";
 import { ContactMenu } from "#molecules/contact-menu";
+import { about } from "#data/about";
+import { UsefullMenu } from "#molecules/usefull-menu";
 
 type TProps = BasicProps & {}
 
@@ -22,30 +24,34 @@ const AppFooter: FC<TProps> = ({
 	return (
 		<Footer className={classes} {...props}>
 			<Container>
-				<Row gutter={[12, 8]}>
+				<Row gutter={[24, 8]} justify="space-between">
 					<Col  xs={24} lg={6}>
-						<Title level={5} className={styles["app-footer__head"]}>Electronly - интернет-магазин электроники</Title>
+						<Title level={5} className={styles["app-footer__head"]}>{about.name} - {about.shortDescription}</Title>
 						<Paragraph className={styles["app-footer__description"]}>
-							Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Заглавных они рот раз рекламных агентство ведущими снова, это речью власти, точках страну приставка, проектах запятых города своих родного оксмокс гор. Продолжил?
+							{about.fullDescription}
 						</Paragraph>
 					</Col>
 					<Col>
 						<Title level={5} className={styles["app-footer__head"]}>Меню</Title>
-						<MainMenu mode="inline" inlineIndent={0} className="app-footer__menu" icon={<ThunderboltOutlined />} />
+						<MainMenuList theme="dark" icon={<ThunderboltOutlined />} />
 					</Col>
 					<Col>
 						<Title level={5} className={styles["app-footer__head"]}>Каталог</Title>
-						<CatalogMenu theme="dark" inlineIndent={0} className="app-footer__menu" icon={<ThunderboltOutlined />} />
+						<CatalogMenu theme="dark" icon={<ThunderboltOutlined />} />
+					</Col>
+					<Col>
+						<Title level={5} className={styles["app-footer__head"]}>Полезное</Title>
+						<UsefullMenu theme="dark" icon={<ThunderboltOutlined />} />
 					</Col>
 					<Col>
 						<Title level={5} className={styles["app-footer__head"]}>Контакты</Title>
-						<ContactMenu theme="dark" inlineIndent={0} className="app-footer__menu" />
+						<ContactMenu theme="dark" />
 					</Col>
 				</Row>
 			</Container>
 			<div className={styles["app-footer__copyright-wrapper"]}>
 				<Container>
-					{(new Date).getFullYear()} &copy; Electronly
+					{(new Date).getFullYear()} &copy; {about.name} - {about.shortDescription}
 				</Container>
 			</div>
 		</Footer>

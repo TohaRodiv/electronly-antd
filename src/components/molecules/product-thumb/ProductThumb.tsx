@@ -11,21 +11,23 @@ import { Link } from "#atoms/link";
 import { CategoryLink } from "#molecules/category-link";
 import { Image } from "#atoms/image";
 
-type TProps = {
+export type TProductThumbProps = {
 	product: TProduct
 	key?: React.Key
 	hideOrder?: boolean
+	className?: string
 }
 
-const ProductThumb: FC<TProps> = ({
+const ProductThumb: FC<TProductThumbProps> = ({
 	product,
 	hideOrder,
+	className,
 	...props
 }) => {
 	const router = useRouter();
 
 	const img = (
-		<Link href={`/product/${product.id}`}>
+		<Link href={`/product/${product.id}`} className={className}>
 			{/* <img src={product.images[0].path} alt={product.name} className={styles["product-thumb__image"]} /> */}
 			<Image
 				objectFit="contain"
@@ -44,7 +46,7 @@ const ProductThumb: FC<TProps> = ({
 	const actions = [];
 
 	if (!hideOrder) {
-		actions.push(<ButtonGoToOrder key="product-thumb-image" onClick={() => { handleGoToOrder(product.id); }} />);
+		actions.push(<ButtonGoToOrder type="default" key="product-thumb-image" onClick={() => { handleGoToOrder(product.id); }} />);
 	}
 
 	return (

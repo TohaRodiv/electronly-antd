@@ -1,4 +1,3 @@
-import { Container } from "#atoms/container";
 import { NewsService } from "#services/backend/api/blog/NewsService";
 import { TArticle } from "#types/articles/TArticle";
 import { NextPage, NextPageContext } from "next";

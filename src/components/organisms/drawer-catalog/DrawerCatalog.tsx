@@ -2,6 +2,7 @@ import { CatalogMenu } from "#molecules/catalog-menu";
 import { Drawer, DrawerProps } from "antd";
 import { FC } from "react";
 import classNames from "classnames";
+import { ThunderboltOutlined } from "@ant-design/icons";
 
 type TProps = DrawerProps & {
 	show: boolean
@@ -17,7 +18,7 @@ const DrawerCatalog: FC<TProps> = ({
 	return (
 		<Drawer className={classes} {...props}>
 			{
-				show && <CatalogMenu />
+				show && <CatalogMenu className="custom-menu" icon={<ThunderboltOutlined />} />
 			}
 		</Drawer>
 	);

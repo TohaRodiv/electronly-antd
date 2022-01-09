@@ -1,3 +1,5 @@
+@import "../../_settings/settings";
+
 .main-menu {
 	overflow: hidden;
 	background-color: var(--ant-primary-color) !important;
@@ -8,4 +10,8 @@
 	&__icon--collapsed {
 		transform: scale(2);
 	}
+}
+
+.main-menu-list {
+	@include footer-list;
 }
