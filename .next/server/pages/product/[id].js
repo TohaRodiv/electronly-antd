@@ -185,7 +185,7 @@ var about = __webpack_require__(1879);
                         priceCurrency: "RUB",
                         itemCondition: "https://schema.org/UsedCondition",
                         availability: product.available ? product.crossed_price ? "https://schema.org/Discontinued" : "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-                        url: `${"http://ec2-18-116-200-2.us-east-2.compute.amazonaws.com"}/product/${product.id}`,
+                        url: `${"https://electronly.ru"}/product/${product.id}`,
                         seller: {
                             name: `${about/* about.name */.j.name} - ${about/* about.shortDescription */.j.shortDescription}`
                         }
