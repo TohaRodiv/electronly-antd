@@ -30,5 +30,5 @@ yarn-error.log*
 *.tsbuildinfo
 TODO.MD
 .env
-./.env.development
-./.env.production
+.env.development
+.env.production
