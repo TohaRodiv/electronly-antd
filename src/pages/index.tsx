@@ -42,7 +42,7 @@ const HomePage: NextPage<TProps> = ({
 			<NextSeo
 				description={about.fullDescription} />
 			{
-				banners && (
+				false && banners && (
 					<>
 						<MainCarousel banners={banners} scrollTo="tracking-order" />
 					</>

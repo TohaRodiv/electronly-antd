@@ -1,44 +1,13 @@
+"use strict";
 (() => {
 var exports = {};
 exports.id = 405;
 exports.ids = [405];
 exports.modules = {
 
-/***/ 3777:
-/***/ ((module) => {
-
-// Exports
-module.exports = {
-	"button-scroll-down": "style_button-scroll-down__yUKk1",
-	"button-scroll-down__item": "style_button-scroll-down__item___EQZm",
-	"sdb04": "style_sdb04__xv3GV"
-};
-
-
-/***/ }),
-
-/***/ 161:
-/***/ ((module) => {
-
-// Exports
-module.exports = {
-	"main-carousel-item": "style_main-carousel-item__IQgN_",
-	"main-carousel-item__image": "style_main-carousel-item__image__FaUdJ",
-	"main-carousel-item__body-container": "style_main-carousel-item__body-container__4qkRQ",
-	"main-carousel-item__body": "style_main-carousel-item__body__b4N_c",
-	"main-carousel-item__body-inner": "style_main-carousel-item__body-inner__tMqQY",
-	"main-carousel-item__title": "style_main-carousel-item__title__icV_h",
-	"main-carousel-item__subtitle": "style_main-carousel-item__subtitle__yUd5O",
-	"main-carousel-item__scroll-down-icon": "style_main-carousel-item__scroll-down-icon__T8lIA"
-};
-
-
-/***/ }),
-
 /***/ 826:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
@@ -77,15 +46,8 @@ var Title_default = /*#__PURE__*/__webpack_require__.n(Title_);
 var external_antd_ = __webpack_require__(5725);
 // EXTERNAL MODULE: ./src/components/atoms/image/index.ts + 1 modules
 var atoms_image = __webpack_require__(3630);
-// EXTERNAL MODULE: ./src/components/molecules/main-carousel/style.module.scss
-var style_module = __webpack_require__(161);
-var style_module_default = /*#__PURE__*/__webpack_require__.n(style_module);
 // EXTERNAL MODULE: external "classnames"
 var external_classnames_ = __webpack_require__(9003);
-var external_classnames_default = /*#__PURE__*/__webpack_require__.n(external_classnames_);
-// EXTERNAL MODULE: ./src/components/atoms/button-scroll-down/style.module.scss
-var button_scroll_down_style_module = __webpack_require__(3777);
-var button_scroll_down_style_module_default = /*#__PURE__*/__webpack_require__.n(button_scroll_down_style_module);
 // EXTERNAL MODULE: ./src/components/atoms/link/index.ts + 1 modules
 var atoms_link = __webpack_require__(5142);
 ;// CONCATENATED MODULE: ./src/components/atoms/button-scroll-down/ButtonScrollDown.tsx
@@ -93,13 +55,13 @@ var atoms_link = __webpack_require__(5142);
 
 
 
-const ButtonScrollDown = ({ className , classNameArrow , scrollTo ,  })=>{
-    const classes = external_classnames_default()((button_scroll_down_style_module_default())["button-scroll-down"], className);
-    const classesArrow = external_classnames_default()((button_scroll_down_style_module_default())["button-scroll-down__item"], classNameArrow);
-    return(/*#__PURE__*/ jsx_runtime_.jsx(atoms_link/* Link */.r, {
+const ButtonScrollDown_ButtonScrollDown = ({ className , classNameArrow , scrollTo ,  })=>{
+    const classes = classNames(styles["button-scroll-down"], className);
+    const classesArrow = classNames(styles["button-scroll-down__item"], classNameArrow);
+    return(/*#__PURE__*/ _jsx(Link, {
         href: `#${scrollTo}`,
         className: classes,
-        children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
+        children: /*#__PURE__*/ _jsx("span", {
             className: classesArrow
         })
     }));
@@ -123,56 +85,56 @@ var router_ = __webpack_require__(1853);
 
 
 
-const CarouselItem = ({ banner , className , scrollTo , ...props })=>{
-    const router = (0,router_.useRouter)();
+const CarouselItem_CarouselItem = ({ banner , className , scrollTo , ...props })=>{
+    const router = useRouter();
     const { id , title , subtitle , image ,  } = banner;
-    const classes = external_classnames_default()((style_module_default())["main-carousel-item"], className);
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    const classes = classNames(styles["main-carousel-item"], className);
+    return(/*#__PURE__*/ _jsxs("div", {
         className: classes,
         ...props,
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(atoms_image/* Image */.E, {
+            /*#__PURE__*/ _jsx(Image, {
                 objectFit: "cover",
                 layout: "fill",
-                className: (style_module_default())["main-carousel-item__image"],
+                className: styles["main-carousel-item__image"],
                 alt: title,
                 src: image
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: (style_module_default())["main-carousel-item__body"],
-                children: /*#__PURE__*/ jsx_runtime_.jsx(container/* Container */.W, {
-                    className: (style_module_default())["main-carousel-item__body-container"],
-                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        className: (style_module_default())["main-carousel-item__body-inner"],
+            /*#__PURE__*/ _jsx("div", {
+                className: styles["main-carousel-item__body"],
+                children: /*#__PURE__*/ _jsx(Container, {
+                    className: styles["main-carousel-item__body-container"],
+                    children: /*#__PURE__*/ _jsxs("div", {
+                        className: styles["main-carousel-item__body-inner"],
                         children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx((Title_default()), {
+                            /*#__PURE__*/ _jsx(Title, {
                                 level: 3,
-                                className: (style_module_default())["main-carousel-item__title"],
+                                className: styles["main-carousel-item__title"],
                                 children: title
                             }),
-                            subtitle && /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                className: (style_module_default())["main-carousel-item__subtitle"],
+                            subtitle && /*#__PURE__*/ _jsx("div", {
+                                className: styles["main-carousel-item__subtitle"],
                                 children: subtitle
                             }),
-                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(space/* Space */.T, {
+                            /*#__PURE__*/ _jsxs(Space, {
                                 justifyContent: "center",
                                 children: [
-                                    /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Button, {
+                                    /*#__PURE__*/ _jsx(Button, {
                                         onClick: ()=>{
                                             router.push("/about");
                                         },
                                         size: "large",
-                                        icon: /*#__PURE__*/ jsx_runtime_.jsx(icons_.AlignLeftOutlined, {
+                                        icon: /*#__PURE__*/ _jsx(AlignLeftOutlined, {
                                         }),
                                         ghost: true,
                                         children: "Подробнее"
                                     }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Button, {
+                                    /*#__PURE__*/ _jsx(Button, {
                                         onClick: ()=>{
                                             router.push("/catalog");
                                         },
                                         size: "large",
-                                        icon: /*#__PURE__*/ jsx_runtime_.jsx(icons_.ShoppingOutlined, {
+                                        icon: /*#__PURE__*/ _jsx(ShoppingOutlined, {
                                         }),
                                         children: "В каталог"
                                     })
@@ -182,10 +144,10 @@ const CarouselItem = ({ banner , className , scrollTo , ...props })=>{
                     })
                 })
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: (style_module_default())["main-carousel-item__scroll-down-icon"],
-                children: /*#__PURE__*/ jsx_runtime_.jsx(ButtonScrollDown, {
-                    classNameArrow: (style_module_default())["main-carousel-item__scroll-item"],
+            /*#__PURE__*/ _jsx("div", {
+                className: styles["main-carousel-item__scroll-down-icon"],
+                children: /*#__PURE__*/ _jsx(ButtonScrollDown, {
+                    classNameArrow: styles["main-carousel-item__scroll-item"],
                     scrollTo: scrollTo
                 })
             })
@@ -199,11 +161,11 @@ const CarouselItem = ({ banner , className , scrollTo , ...props })=>{
 
 
 const MainCarousel = ({ banners , scrollTo ,  })=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Carousel, {
+    return(/*#__PURE__*/ _jsx(Carousel, {
         autoplay: true,
         effect: "fade",
         dotPosition: "right",
-        children: banners.map((banner)=>/*#__PURE__*/ jsx_runtime_.jsx(CarouselItem, {
+        children: banners.map((banner)=>/*#__PURE__*/ _jsx(CarouselItem, {
                 scrollTo: scrollTo,
                 banner: banner
             }, banner.id)
@@ -286,12 +248,7 @@ const HomePage = ({ news , products , categories ,  })=>{
             /*#__PURE__*/ jsx_runtime_.jsx(external_next_seo_.NextSeo, {
                 description: about/* about.fullDescription */.j.fullDescription
             }),
-            banners && /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-                children: /*#__PURE__*/ jsx_runtime_.jsx(MainCarousel, {
-                    banners: banners,
-                    scrollTo: "tracking-order"
-                })
-            }),
+             false && /*#__PURE__*/ 0,
             /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
                 theme: "dark",
                 id: "tracking-order",
@@ -423,7 +380,6 @@ const getServerSideProps = async ({ req , res  })=>{
 /***/ 7066:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("@ant-design/icons");
 
 /***/ }),
@@ -431,7 +387,6 @@ module.exports = require("@ant-design/icons");
 /***/ 9901:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("@nestjsx/crud-request");
 
 /***/ }),
@@ -439,7 +394,6 @@ module.exports = require("@nestjsx/crud-request");
 /***/ 5725:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("antd");
 
 /***/ }),
@@ -447,7 +401,6 @@ module.exports = require("antd");
 /***/ 1774:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("antd/lib/typography/Paragraph");
 
 /***/ }),
@@ -455,7 +408,6 @@ module.exports = require("antd/lib/typography/Paragraph");
 /***/ 6492:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("antd/lib/typography/Title");
 
 /***/ }),
@@ -463,7 +415,6 @@ module.exports = require("antd/lib/typography/Title");
 /***/ 9003:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("classnames");
 
 /***/ }),
@@ -471,7 +422,6 @@ module.exports = require("classnames");
 /***/ 6641:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next-seo");
 
 /***/ }),
@@ -479,7 +429,6 @@ module.exports = require("next-seo");
 /***/ 562:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/server/denormalize-page-path.js");
 
 /***/ }),
@@ -487,7 +436,6 @@ module.exports = require("next/dist/server/denormalize-page-path.js");
 /***/ 8028:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/server/image-config.js");
 
 /***/ }),
@@ -495,7 +443,6 @@ module.exports = require("next/dist/server/image-config.js");
 /***/ 4957:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/head.js");
 
 /***/ }),
@@ -503,7 +450,6 @@ module.exports = require("next/dist/shared/lib/head.js");
 /***/ 4014:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 
 /***/ }),
@@ -511,7 +457,6 @@ module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 /***/ 8020:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/mitt.js");
 
 /***/ }),
@@ -519,7 +464,6 @@ module.exports = require("next/dist/shared/lib/mitt.js");
 /***/ 4964:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/router-context.js");
 
 /***/ }),
@@ -527,7 +471,6 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 /***/ 9565:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-route.js");
 
 /***/ }),
@@ -535,7 +478,6 @@ module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-
 /***/ 4365:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/get-middleware-regex.js");
 
 /***/ }),
@@ -543,7 +485,6 @@ module.exports = require("next/dist/shared/lib/router/utils/get-middleware-regex
 /***/ 1428:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 
 /***/ }),
@@ -551,7 +492,6 @@ module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 /***/ 1292:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.js");
 
 /***/ }),
@@ -559,7 +499,6 @@ module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.j
 /***/ 979:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
 
 /***/ }),
@@ -567,7 +506,6 @@ module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
 /***/ 6052:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/resolve-rewrites.js");
 
 /***/ }),
@@ -575,7 +513,6 @@ module.exports = require("next/dist/shared/lib/router/utils/resolve-rewrites.js"
 /***/ 4226:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/route-matcher.js");
 
 /***/ }),
@@ -583,7 +520,6 @@ module.exports = require("next/dist/shared/lib/router/utils/route-matcher.js");
 /***/ 5052:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
 
 /***/ }),
@@ -591,7 +527,6 @@ module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
 /***/ 3018:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/to-base-64.js");
 
 /***/ }),
@@ -599,7 +534,6 @@ module.exports = require("next/dist/shared/lib/to-base-64.js");
 /***/ 9232:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/dist/shared/lib/utils.js");
 
 /***/ }),
@@ -607,7 +541,6 @@ module.exports = require("next/dist/shared/lib/utils.js");
 /***/ 1853:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("next/router");
 
 /***/ }),
@@ -615,7 +548,6 @@ module.exports = require("next/router");
 /***/ 6689:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("react");
 
 /***/ }),
@@ -623,7 +555,6 @@ module.exports = require("react");
 /***/ 997:
 /***/ ((module) => {
 
-"use strict";
 module.exports = require("react/jsx-runtime");
 
 /***/ })
