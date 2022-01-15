@@ -28,23 +28,22 @@ const AppHeader: FC<TProps> = ({
 	}, []);
 
 	const classes = classNames(styles["app-header"], className);
+	const menuClasses = classNames(styles["app-header__menu-icon"], styles["app-header__toggle-menu"]);
 
-	/**
-	 * @TODO: Реализовать поиск
-	 */
 	return (
 		<>
 			<Header className={classes} {...props}>
 				<Container>
 					<div className={styles["app-header__inner"]}>
 						<AppLogo />
-						<MenuOutlined className={styles["app-header__toggle-menu"]} onClick={toggleCollapsedMenu} />
+						<MenuOutlined className={menuClasses} onClick={toggleCollapsedMenu} />
 						{
 							show && <MainMenu className={styles["app-header__main-menu"]} />
 						}
 						<Popover
 							placement="bottomLeft"
 							title="Поиск в каталоге"
+							className={styles["app-header__menu-icon"]}
 							content={<ProductSearchForm enterButton={<Button icon={<SearchOutlined />} type="primary" ghost />} />}>
 							<SearchOutlined />
 						</Popover>

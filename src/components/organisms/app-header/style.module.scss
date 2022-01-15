@@ -19,8 +19,11 @@
     color: var(--ant-primary-1);
   }
 
+  &__menu-icon {
+	  font-size: 1.3rem;
+  }
+
   &__toggle-menu {
-    font-size: 1.5rem;
 	flex: 1;
 	text-align: left !important;
   }

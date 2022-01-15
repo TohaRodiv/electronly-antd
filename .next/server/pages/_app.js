@@ -102,6 +102,7 @@ module.exports = {
 module.exports = {
 	"app-header": "style_app-header__1MtOv",
 	"app-header__inner": "style_app-header__inner__a0RYT",
+	"app-header__menu-icon": "style_app-header__menu-icon__hHVp6",
 	"app-header__toggle-menu": "style_app-header__toggle-menu__Qslys",
 	"app-header__main-menu": "style_app-header__main-menu__vqN8_"
 };
@@ -676,9 +677,8 @@ const AppHeader = ({ className , ...props })=>{
         setShow(true);
     }, []);
     const classes = external_classnames_default()((app_header_style_module_default())["app-header"], className);
-    /**
-	 * @TODO: Реализовать поиск
-	 */ return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
+    const menuClasses = external_classnames_default()((app_header_style_module_default())["app-header__menu-icon"], (app_header_style_module_default())["app-header__toggle-menu"]);
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(layout_namespaceObject.Header, {
                 className: classes,
@@ -690,7 +690,7 @@ const AppHeader = ({ className , ...props })=>{
                             /*#__PURE__*/ jsx_runtime_.jsx(AppLogo, {
                             }),
                             /*#__PURE__*/ jsx_runtime_.jsx(icons_.MenuOutlined, {
-                                className: (app_header_style_module_default())["app-header__toggle-menu"],
+                                className: menuClasses,
                                 onClick: toggleCollapsedMenu
                             }),
                             show && /*#__PURE__*/ jsx_runtime_.jsx(MainMenu, {
@@ -699,6 +699,7 @@ const AppHeader = ({ className , ...props })=>{
                             /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Popover, {
                                 placement: "bottomLeft",
                                 title: "Поиск в каталоге",
+                                className: (app_header_style_module_default())["app-header__menu-icon"],
                                 content: /*#__PURE__*/ jsx_runtime_.jsx(product_search_form/* ProductSearchForm */.j, {
                                     enterButton: /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Button, {
                                         icon: /*#__PURE__*/ jsx_runtime_.jsx(icons_.SearchOutlined, {

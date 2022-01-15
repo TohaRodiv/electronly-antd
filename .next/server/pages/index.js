@@ -272,7 +272,7 @@ var external_next_seo_ = __webpack_require__(6641);
 
 
 
-const HomePage = ({ news , products , categories ,  })=>{
+const HomePage = ({ news , products , categories , banners ,  })=>{
     function millisToMinutesAndSeconds(millis) {
         var minutes = Math.floor(millis / 60000);
         var seconds = (millis % 60000 / 1000).toFixed(0);
@@ -402,9 +402,9 @@ const getStaticProps = async ()=>{
     const props = {
         news: null,
         products: null,
-        categories: null
+        categories: null,
+        banners: banners
     };
-    console.log("Initial props");
     props.news = (await NewsService/* NewsService.getMany */.Y.getMany()).payload;
     props.products = (await ProductService/* ProductService.getMany */.M.getMany()).payload;
     props.categories = (await CategoryService/* CategoryService.getMany */.H.getMany()).payload;

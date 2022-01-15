@@ -14,16 +14,18 @@ import { TCategories } from "#types/categories/TCategories";
 import { CategoryService } from "#services/backend/api/shop/CategoryService";
 import Title from "antd/lib/typography/Title";
 import { MainCarousel } from "#molecules/main-carousel";
-import { banners } from "#data/banners";
+import { banners as _banners } from "#data/banners";
 import { TrackingOrderForm } from "#molecules/tracking-order-form";
 import Paragraph from "antd/lib/typography/Paragraph";
 import { NextSeo } from "next-seo";
 import { about } from "#data/about";
+import { TBanner } from "#types/banner/TBanner";
 
 type TProps = {
 	news: TArticles | null
 	products: TProducts | null
 	categories: TCategories | null
+	banners: TBanner[]
 }
 
 type TSProps = {
@@ -34,6 +36,7 @@ const HomePage: NextPage<TProps> = ({
 	news,
 	products,
 	categories,
+	banners,
 }) => {
 	function millisToMinutesAndSeconds(millis: number) { var minutes = Math.floor(millis / 60000); var seconds = ((millis % 60000) / 1000).toFixed(0); return minutes + ":" + (+seconds < 10 ? '0' : '') + seconds; }
 	return (
@@ -133,10 +136,8 @@ export const getStaticProps: GetStaticProps = async () => {
 		news: null,
 		products: null,
 		categories: null,
+		banners: _banners,
 	};
-
-	console.log("Initial props");
-
 
 	props.news = (await NewsService.getMany()).payload;
 	props.products = (await ProductService.getMany()).payload;
