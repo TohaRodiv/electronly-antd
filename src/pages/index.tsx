@@ -2,7 +2,7 @@ import { Container } from "#atoms/container";
 import { CategoryList } from "#molecules/category-list/CategoryList";
 import { NewsList } from "#molecules/news-list";
 import { ProductList } from "#molecules/product-list";
-import type { NextPage, NextPageContext } from "next";
+import type { GetStaticProps, NextPage, NextPageContext } from "next";
 import { Section } from "#molecules/section";
 import { AppstoreOutlined, ReadOutlined, SearchOutlined, StarOutlined } from "@ant-design/icons";
 import { Space } from "#molecules/space";
@@ -128,14 +128,15 @@ const HomePage: NextPage<TProps> = ({
 	);
 };
 
-export const getStaticPropsProps = async ({ req, res }: NextPageContext): Promise<TSProps> => {
-	res && CacheService.setCachePage(res);
+export const getStaticProps: GetStaticProps = async () => {
 
 	const props: TProps = {
 		news: null,
 		products: null,
 		categories: null,
 	};
+
+	console.log("Initial props");
 
 
 	props.news = (await NewsService.getMany()).payload;
@@ -144,6 +145,7 @@ export const getStaticPropsProps = async ({ req, res }: NextPageContext): Promis
 
 	return {
 		props,
+		revalidate: 60 * 15,
 	};
 };
 

@@ -1,5 +1,5 @@
-exports.id = 852;
-exports.ids = [852];
+exports.id = 758;
+exports.ids = [758];
 exports.modules = {
 
 /***/ 5025:
@@ -230,22 +230,6 @@ const CategoryService = new class {
     }
     async findById(id) {
         return await this.repository.findById(id);
-    }
-};
-
-
-/***/ }),
-
-/***/ 8800:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Q": () => (/* binding */ CacheService)
-/* harmony export */ });
-const CacheService = new class {
-    setCachePage(res) {
-        res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=72000");
     }
 };
 

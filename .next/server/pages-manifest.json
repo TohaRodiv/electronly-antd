@@ -6,7 +6,7 @@
   "/api/shop/orders": "pages/api/shop/orders.js",
   "/catalog/[[...id]]": "pages/catalog/[[...id]].js",
   "/contacts": "pages/contacts.html",
-  "/": "pages/index.html",
+  "/": "pages/index.js",
   "/news/[id]": "pages/news/[id].js",
   "/news": "pages/news.js",
   "/order/[id]": "pages/order/[id].js",

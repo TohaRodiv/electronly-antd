@@ -5,31 +5,51 @@ exports.id = 945;
 exports.ids = [945];
 exports.modules = {
 
-/***/ 5186:
+/***/ 276:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _atoms_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4313);
-/* harmony import */ var _data_about__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1879);
-/* harmony import */ var _molecules_category_list_CategoryList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5760);
-/* harmony import */ var _molecules_product_list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6222);
-/* harmony import */ var _molecules_section__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9360);
-/* harmony import */ var _molecules_space__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(3530);
-/* harmony import */ var _services_backend_api_shop_CategoryService__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8993);
-/* harmony import */ var _services_backend_api_shop_ProductService__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(7705);
-/* harmony import */ var _services_backend_cache_CacheService__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(8800);
-/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(7066);
-/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_ant_design_icons__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var antd_lib_typography_Title__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(6492);
-/* harmony import */ var antd_lib_typography_Title__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(antd_lib_typography_Title__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(6641);
-/* harmony import */ var next_seo__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(next_seo__WEBPACK_IMPORTED_MODULE_12__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ _id_),
+  "getServerSideProps": () => (/* binding */ getServerSideProps)
+});
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: ./src/components/atoms/container/index.ts + 1 modules
+var container = __webpack_require__(4313);
+// EXTERNAL MODULE: ./src/data/about.ts
+var about = __webpack_require__(1879);
+// EXTERNAL MODULE: ./src/components/molecules/category-list/CategoryList.tsx + 1 modules
+var CategoryList = __webpack_require__(5760);
+// EXTERNAL MODULE: ./src/components/molecules/product-list/index.ts + 1 modules
+var product_list = __webpack_require__(6222);
+// EXTERNAL MODULE: ./src/components/molecules/section/index.tsx + 3 modules
+var section = __webpack_require__(9360);
+// EXTERNAL MODULE: ./src/components/molecules/space/index.ts + 1 modules
+var space = __webpack_require__(3530);
+// EXTERNAL MODULE: ./src/services/backend/api/shop/CategoryService.ts + 1 modules
+var CategoryService = __webpack_require__(8993);
+// EXTERNAL MODULE: ./src/services/backend/api/shop/ProductService.ts + 1 modules
+var ProductService = __webpack_require__(7705);
+;// CONCATENATED MODULE: ./src/services/backend/cache/CacheService.ts
+const CacheService = new class {
+    setCachePage(res) {
+        res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=72000");
+    }
+};
+
+// EXTERNAL MODULE: external "@ant-design/icons"
+var icons_ = __webpack_require__(7066);
+// EXTERNAL MODULE: external "antd/lib/typography/Title"
+var Title_ = __webpack_require__(6492);
+var Title_default = /*#__PURE__*/__webpack_require__.n(Title_);
+// EXTERNAL MODULE: external "next-seo"
+var external_next_seo_ = __webpack_require__(6641);
+;// CONCATENATED MODULE: ./src/pages/catalog/[[...id]].tsx
 
 
 
@@ -44,41 +64,41 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const CatalogPage = ({ products , categories , category ,  })=>{
-    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_seo__WEBPACK_IMPORTED_MODULE_12__.NextSeo, {
-                titleTemplate: `%s - купить по выгодной цене в интернет-магазине ${_data_about__WEBPACK_IMPORTED_MODULE_2__/* .about.name */ .j.name}`,
-                description: category.description || _data_about__WEBPACK_IMPORTED_MODULE_2__/* .about.fullDescription */ .j.fullDescription,
+            /*#__PURE__*/ jsx_runtime_.jsx(external_next_seo_.NextSeo, {
+                titleTemplate: `%s - купить по выгодной цене в интернет-магазине ${about/* about.name */.j.name}`,
+                description: category.description || about/* about.fullDescription */.j.fullDescription,
                 title: category.title
             }),
-            categories && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_molecules_section__WEBPACK_IMPORTED_MODULE_5__/* .Section */ .$, {
+            categories && /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
                 theme: "dark",
-                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_atoms_container__WEBPACK_IMPORTED_MODULE_1__/* .Container */ .W, {
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(container/* Container */.W, {
                     children: [
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_molecules_section__WEBPACK_IMPORTED_MODULE_5__/* .Section.Header */ .$.Header, {
-                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((antd_lib_typography_Title__WEBPACK_IMPORTED_MODULE_11___default()), {
+                        /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Header */.$.Header, {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx((Title_default()), {
                                 level: 3,
-                                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_molecules_space__WEBPACK_IMPORTED_MODULE_6__/* .Space */ .T, {
+                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(space/* Space */.T, {
                                     children: [
-                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_ant_design_icons__WEBPACK_IMPORTED_MODULE_10__.AppstoreOutlined, {
+                                        /*#__PURE__*/ jsx_runtime_.jsx(icons_.AppstoreOutlined, {
                                         }),
                                         "Категории"
                                     ]
                                 })
                             })
                         }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_molecules_section__WEBPACK_IMPORTED_MODULE_5__/* .Section.Body */ .$.Body, {
-                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_molecules_category_list_CategoryList__WEBPACK_IMPORTED_MODULE_3__/* .CategoryList */ .o, {
+                        /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Body */.$.Body, {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(CategoryList/* CategoryList */.o, {
                                 categories: categories
                             })
                         })
                     ]
                 })
             }),
-            products && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_molecules_section__WEBPACK_IMPORTED_MODULE_5__/* .Section */ .$, {
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_atoms_container__WEBPACK_IMPORTED_MODULE_1__/* .Container */ .W, {
-                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_molecules_section__WEBPACK_IMPORTED_MODULE_5__/* .Section.Body */ .$.Body, {
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_molecules_product_list__WEBPACK_IMPORTED_MODULE_4__/* .ProductList */ .c, {
+            products && /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
+                children: /*#__PURE__*/ jsx_runtime_.jsx(container/* Container */.W, {
+                    children: /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Body */.$.Body, {
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(product_list/* ProductList */.c, {
                             products: products
                         })
                     })
@@ -88,7 +108,7 @@ const CatalogPage = ({ products , categories , category ,  })=>{
     }));
 };
 const getServerSideProps = async ({ req , res , query  })=>{
-    res && _services_backend_cache_CacheService__WEBPACK_IMPORTED_MODULE_9__/* .CacheService.setCachePage */ .Q.setCachePage(res);
+    res && CacheService.setCachePage(res);
     const props = {
         categories: null,
         products: null,
@@ -101,18 +121,18 @@ const getServerSideProps = async ({ req , res , query  })=>{
     };
     const categoryId = +(query && query.id || false);
     if (isFinite(categoryId) && categoryId > 0) {
-        props.categories = (await _services_backend_api_shop_CategoryService__WEBPACK_IMPORTED_MODULE_7__/* .CategoryService.getMany */ .H.getMany()).payload;
-        props.products = (await _services_backend_api_shop_ProductService__WEBPACK_IMPORTED_MODULE_8__/* .ProductService.findByCategoryId */ .M.findByCategoryId(categoryId)).payload;
-        props.category = (await _services_backend_api_shop_CategoryService__WEBPACK_IMPORTED_MODULE_7__/* .CategoryService.findById */ .H.findById(categoryId)).payload;
+        props.categories = (await CategoryService/* CategoryService.getMany */.H.getMany()).payload;
+        props.products = (await ProductService/* ProductService.findByCategoryId */.M.findByCategoryId(categoryId)).payload;
+        props.category = (await CategoryService/* CategoryService.findById */.H.findById(categoryId)).payload;
     } else {
-        props.categories = (await _services_backend_api_shop_CategoryService__WEBPACK_IMPORTED_MODULE_7__/* .CategoryService.getMany */ .H.getMany()).payload;
-        props.products = (await _services_backend_api_shop_ProductService__WEBPACK_IMPORTED_MODULE_8__/* .ProductService.getMany */ .M.getMany()).payload;
+        props.categories = (await CategoryService/* CategoryService.getMany */.H.getMany()).payload;
+        props.products = (await ProductService/* ProductService.getMany */.M.getMany()).payload;
     }
     return {
         props
     };
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CatalogPage);
+/* harmony default export */ const _id_ = (CatalogPage);
 
 
 /***/ }),
@@ -299,7 +319,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,852], () => (__webpack_exec__(5186)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,758], () => (__webpack_exec__(276)));
 module.exports = __webpack_exports__;
 
 })();
