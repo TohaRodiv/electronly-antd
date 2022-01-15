@@ -128,7 +128,7 @@ const HomePage: NextPage<TProps> = ({
 	);
 };
 
-export const getServerSideProps = async ({ req, res }: NextPageContext): Promise<TSProps> => {
+export const getStaticPropsProps = async ({ req, res }: NextPageContext): Promise<TSProps> => {
 	res && CacheService.setCachePage(res);
 
 	const props: TProps = {
