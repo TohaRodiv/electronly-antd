@@ -3,9 +3,7 @@ import { about } from "#data/about"
 import { NewsList } from "#molecules/news-list"
 import { Section } from "#molecules/section"
 import { NewsService } from "#services/backend/api/blog/NewsService"
-import { CacheService } from "#services/backend/cache/CacheService"
 import { TArticles } from "#types/articles/TArticles"
-import { ReadOutlined } from "@ant-design/icons"
 import Title from "antd/lib/typography/Title"
 import { GetStaticProps, NextPage, NextPageContext } from "next"
 import { NextSeo } from "next-seo"
@@ -54,7 +52,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 	return {
 		props,
-		revalidate: 60 * 15,
+		revalidate: 60 * 60,
 	};
 };
 

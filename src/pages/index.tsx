@@ -19,7 +19,6 @@ import { TrackingOrderForm } from "#molecules/tracking-order-form";
 import Paragraph from "antd/lib/typography/Paragraph";
 import { NextSeo } from "next-seo";
 import { about } from "#data/about";
-import { CacheService } from "#services/backend/cache/CacheService";
 
 type TProps = {
 	news: TArticles | null
@@ -42,7 +41,7 @@ const HomePage: NextPage<TProps> = ({
 			<NextSeo
 				description={about.fullDescription} />
 			{
-				false && banners && (
+				banners && (
 					<>
 						<MainCarousel banners={banners} scrollTo="tracking-order" />
 					</>
@@ -145,7 +144,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 	return {
 		props,
-		revalidate: 60 * 15,
+		revalidate: 60 * 60,
 	};
 };
 
