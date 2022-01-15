@@ -105,7 +105,7 @@ const getStaticProps = async ()=>{
     props.news = (await _services_backend_api_blog_NewsService__WEBPACK_IMPORTED_MODULE_5__/* .NewsService.getMany */ .Y.getMany()).payload;
     return {
         props,
-        revalidate: 60 * 15
+        revalidate: 60 * 60
     };
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NewsPage);
