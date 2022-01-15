@@ -2,7 +2,7 @@ import { Container } from "#atoms/container";
 import { CategoryList } from "#molecules/category-list/CategoryList";
 import { NewsList } from "#molecules/news-list";
 import { ProductList } from "#molecules/product-list";
-import type { NextPage } from "next";
+import type { NextPage, NextPageContext } from "next";
 import { Section } from "#molecules/section";
 import { AppstoreOutlined, ReadOutlined, SearchOutlined, StarOutlined } from "@ant-design/icons";
 import { Space } from "#molecules/space";
@@ -19,6 +19,7 @@ import { TrackingOrderForm } from "#molecules/tracking-order-form";
 import Paragraph from "antd/lib/typography/Paragraph";
 import { NextSeo } from "next-seo";
 import { about } from "#data/about";
+import { CacheService } from "#services/backend/cache/CacheService";
 
 type TProps = {
 	news: TArticles | null
@@ -35,6 +36,7 @@ const HomePage: NextPage<TProps> = ({
 	products,
 	categories,
 }) => {
+	function millisToMinutesAndSeconds(millis: number) { var minutes = Math.floor(millis / 60000); var seconds = ((millis % 60000) / 1000).toFixed(0); return minutes + ":" + (+seconds < 10 ? '0' : '') + seconds; }
 	return (
 		<>
 			<NextSeo
@@ -126,12 +128,15 @@ const HomePage: NextPage<TProps> = ({
 	);
 };
 
-export const getServerSideProps = async (): Promise<TSProps> => {
+export const getServerSideProps = async ({ req, res }: NextPageContext): Promise<TSProps> => {
+	res && CacheService.setCachePage(res);
+
 	const props: TProps = {
 		news: null,
 		products: null,
 		categories: null,
 	};
+
 
 	props.news = (await NewsService.getMany()).payload;
 	props.products = (await ProductService.getMany()).payload;

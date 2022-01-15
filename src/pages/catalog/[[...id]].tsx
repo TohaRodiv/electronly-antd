@@ -6,6 +6,7 @@ import { Section } from "#molecules/section";
 import { Space } from "#molecules/space";
 import { CategoryService } from "#services/backend/api/shop/CategoryService";
 import { ProductService } from "#services/backend/api/shop/ProductService";
+import { CacheService } from "#services/backend/cache/CacheService";
 import { TCategories } from "#types/categories/TCategories";
 import { TCategory } from "#types/categories/TCategory";
 import { TProducts } from "#types/products/TProducts";
@@ -70,7 +71,8 @@ const CatalogPage: NextPage<TProps> = ({
 	);
 };
 
-export const getServerSideProps = async (ctx: NextPageContext): Promise<TSProps> => {
+export const getServerSideProps = async ({req, res, query}: NextPageContext): Promise<TSProps> => {
+	res && CacheService.setCachePage(res);
 	const props: TProps = {
 		categories: null,
 		products: null,
@@ -82,7 +84,7 @@ export const getServerSideProps = async (ctx: NextPageContext): Promise<TSProps>
 		},
 	};
 
-	const categoryId = +(ctx.query && ctx.query.id || false);
+	const categoryId = +(query && query.id || false);
 
 	if (isFinite(categoryId) && categoryId > 0) {
 		props.categories = (await CategoryService.getMany()).payload;

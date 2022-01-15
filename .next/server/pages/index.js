@@ -253,6 +253,8 @@ var Paragraph_ = __webpack_require__(1774);
 var Paragraph_default = /*#__PURE__*/__webpack_require__.n(Paragraph_);
 // EXTERNAL MODULE: external "next-seo"
 var external_next_seo_ = __webpack_require__(6641);
+// EXTERNAL MODULE: ./src/services/backend/cache/CacheService.ts
+var CacheService = __webpack_require__(8800);
 ;// CONCATENATED MODULE: ./src/pages/index.tsx
 
 
@@ -272,7 +274,13 @@ var external_next_seo_ = __webpack_require__(6641);
 
 
 
+
 const HomePage = ({ news , products , categories ,  })=>{
+    function millisToMinutesAndSeconds(millis) {
+        var minutes = Math.floor(millis / 60000);
+        var seconds = (millis % 60000 / 1000).toFixed(0);
+        return minutes + ":" + (+seconds < 10 ? '0' : '') + seconds;
+    }
     return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(external_next_seo_.NextSeo, {
@@ -393,7 +401,8 @@ const HomePage = ({ news , products , categories ,  })=>{
         ]
     }));
 };
-const getServerSideProps = async ()=>{
+const getServerSideProps = async ({ req , res  })=>{
+    res && CacheService/* CacheService.setCachePage */.Q.setCachePage(res);
     const props = {
         news: null,
         products: null,
@@ -626,7 +635,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,197,758,4,917], () => (__webpack_exec__(826)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,197,852,4,917], () => (__webpack_exec__(826)));
 module.exports = __webpack_exports__;
 
 })();

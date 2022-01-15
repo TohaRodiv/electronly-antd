@@ -3,10 +3,11 @@ import { about } from "#data/about"
 import { NewsList } from "#molecules/news-list"
 import { Section } from "#molecules/section"
 import { NewsService } from "#services/backend/api/blog/NewsService"
+import { CacheService } from "#services/backend/cache/CacheService"
 import { TArticles } from "#types/articles/TArticles"
 import { ReadOutlined } from "@ant-design/icons"
 import Title from "antd/lib/typography/Title"
-import { NextPage } from "next"
+import { NextPage, NextPageContext } from "next"
 import { NextSeo } from "next-seo"
 
 type TProps = {
@@ -43,7 +44,10 @@ const NewsPage: NextPage<TProps> = ({
 	);
 };
 
-export const getServerSideProps = async (): Promise<TSProps> => {
+export const getServerSideProps = async ({req, res}: NextPageContext): Promise<TSProps> => {
+	
+	res && CacheService.setCachePage(res);
+	
 	const props: TProps = {
 		news: null,
 	};
