@@ -199,7 +199,7 @@ const ProductSearchForm = ({ ...props })=>{
 
 /***/ }),
 
-/***/ 4482:
+/***/ 9793:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -342,21 +342,35 @@ MainMenuList.defaultProps = {
 // EXTERNAL MODULE: ./src/components/molecules/catalog-menu/style.module.scss
 var catalog_menu_style_module = __webpack_require__(5405);
 var catalog_menu_style_module_default = /*#__PURE__*/__webpack_require__.n(catalog_menu_style_module);
-;// CONCATENATED MODULE: ./src/context/AppContext.tsx
+;// CONCATENATED MODULE: ./src/constants/SWR.ts
+const SWR_SHOP_CATEGORIES = "/shop/categories";
+
+// EXTERNAL MODULE: ./src/services/frontend/api/BaseAPIService.ts
+var BaseAPIService = __webpack_require__(6605);
+;// CONCATENATED MODULE: ./src/services/frontend/api/ShopCategoryService.ts
+
+const ShopCategoryService = new class extends BaseAPIService/* BaseAPIService */.M {
+    async getMany() {
+        return await this.fetch("/shop/categories");
+    }
+};
+
+;// CONCATENATED MODULE: external "swr/immutable"
+const immutable_namespaceObject = require("swr/immutable");
+var immutable_default = /*#__PURE__*/__webpack_require__.n(immutable_namespaceObject);
+;// CONCATENATED MODULE: ./src/hooks/useShopCategories.ts
 
 
-const appData = {
-    categories: []
+
+const useShopCategories = ()=>{
+    var ref;
+    const swr = immutable_default()(SWR_SHOP_CATEGORIES, ()=>ShopCategoryService.getMany()
+    );
+    return {
+        categories: (ref = swr.data) === null || ref === void 0 ? void 0 : ref.payload,
+        ...swr
+    };
 };
-const AppContext = /*#__PURE__*/ (0,external_react_.createContext)(appData);
-const AppProvider = ({ children , value ,  })=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(AppContext.Provider, {
-        value: value,
-        children: children
-    }));
-};
-const useAppData = ()=>useContext(AppContext)
-;
 
 ;// CONCATENATED MODULE: ./src/components/molecules/catalog-menu/CatalogMenu.tsx
 
@@ -371,30 +385,29 @@ const CatalogMenu = ({ className , icon , theme , ...props })=>{
     const classes = external_classnames_default()((catalog_menu_style_module_default())["catalog-menu"], {
         [(catalog_menu_style_module_default())[`catalog-menu--theme--${theme}`]]: !!theme
     }, className);
-    return(/*#__PURE__*/ jsx_runtime_.jsx(AppContext.Consumer, {
-        children: ({ categories  })=>/*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Spin, {
-                indicator: /*#__PURE__*/ jsx_runtime_.jsx(icons_.LoadingOutlined, {
-                }),
-                spinning: !!!categories,
-                children: /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.List, {
-                    className: classes,
-                    ...props,
-                    children: categories && categories.map((category)=>/*#__PURE__*/ jsx_runtime_.jsx(external_antd_.List.Item, {
-                            className: (catalog_menu_style_module_default())["catalog-menu__item"],
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(atoms_link/* Link */.r, {
-                                href: `/catalog/${category.id}`,
-                                className: (catalog_menu_style_module_default())["catalog-menu__link"],
-                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(space/* Space */.T, {
-                                    children: [
-                                        icon,
-                                        category.title
-                                    ]
-                                })
-                            })
-                        }, `category-${category.id}`)
-                    )
-                })
-            })
+    const { categories  } = useShopCategories();
+    return(/*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Spin, {
+        indicator: /*#__PURE__*/ jsx_runtime_.jsx(icons_.LoadingOutlined, {
+        }),
+        spinning: !!!categories,
+        children: /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.List, {
+            className: classes,
+            ...props,
+            children: categories && categories.map((category)=>/*#__PURE__*/ jsx_runtime_.jsx(external_antd_.List.Item, {
+                    className: (catalog_menu_style_module_default())["catalog-menu__item"],
+                    children: /*#__PURE__*/ jsx_runtime_.jsx(atoms_link/* Link */.r, {
+                        href: `/catalog/${category.id}`,
+                        className: (catalog_menu_style_module_default())["catalog-menu__link"],
+                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(space/* Space */.T, {
+                            children: [
+                                icon,
+                                category.title
+                            ]
+                        })
+                    })
+                }, `category-${category.id}`)
+            )
+        })
     }));
 };
 CatalogMenu.defaultProps = {
@@ -794,18 +807,7 @@ const seo = {
     defaultTitle: `${about/* about.name */.j.name} - ${about/* about.shortDescription */.j.shortDescription}`
 };
 
-// EXTERNAL MODULE: ./src/services/frontend/api/BaseAPIService.ts
-var BaseAPIService = __webpack_require__(6605);
-;// CONCATENATED MODULE: ./src/services/frontend/api/ShopCategoryService.ts
-
-const ShopCategoryService = new class extends BaseAPIService/* BaseAPIService */.M {
-    async getMany() {
-        return await this.fetch("/shop/categories");
-    }
-};
-
 ;// CONCATENATED MODULE: ./src/pages/_app.tsx
-
 
 
 
@@ -818,16 +820,7 @@ const ShopCategoryService = new class extends BaseAPIService/* BaseAPIService */
 
 function App({ Component , pageProps  }) {
     const router = (0,router_.useRouter)();
-    const { 0: categories , 1: setCategories  } = (0,external_react_.useState)(null);
     (0,external_react_.useEffect)(()=>{
-        (async ()=>{
-            const { payload , error ,  } = await ShopCategoryService.getMany();
-            if (!error) {
-                setCategories(payload);
-            } else {
-                console.error(`Error fetch categories. ${error.message}: ${error.statusCode}`);
-            }
-        })();
         const handleStart = ()=>{
             external_nprogress_default().start();
         };
@@ -850,22 +843,23 @@ function App({ Component , pageProps  }) {
         })
     ;
     const getLayout = Component.getLayout ? pageLayout : appLayout;
-    return(/*#__PURE__*/ jsx_runtime_.jsx(external_antd_.ConfigProvider, {
-        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(AppProvider, {
-            value: {
-                categories
-            },
-            children: [
-                /*#__PURE__*/ jsx_runtime_.jsx(external_next_seo_.DefaultSeo, {
-                    ...seo
-                }),
-                getLayout(/*#__PURE__*/ jsx_runtime_.jsx(Component, {
-                    ...pageProps
-                })),
-                /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.BackTop, {
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(external_antd_.ConfigProvider, {
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx(external_next_seo_.DefaultSeo, {
+                ...seo
+            }),
+            getLayout(/*#__PURE__*/ jsx_runtime_.jsx(Component, {
+                ...pageProps
+            })),
+            /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.BackTop, {
+                children: /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Button, {
+                    size: "large",
+                    type: "default",
+                    icon: /*#__PURE__*/ jsx_runtime_.jsx(icons_.CaretUpOutlined, {
+                    })
                 })
-            ]
-        })
+            })
+        ]
     }));
 }
 /* harmony default export */ const _app = (App);
@@ -1064,7 +1058,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,303,635,605], () => (__webpack_exec__(4482)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,303,635,605], () => (__webpack_exec__(9793)));
 module.exports = __webpack_exports__;
 
 })();

@@ -5,7 +5,7 @@ import { Link } from "#atoms/link";
 import { LoadingOutlined } from "@ant-design/icons";
 import styles from "./style.module.scss";
 import { Space } from "#molecules/space";
-import { AppContext } from "src/context/AppContext";
+import { useShopCategories } from "#hooks/useShopCategories";
 
 type TProps = ListProps<any> & {
 	icon?: ReactNode
@@ -26,31 +26,29 @@ const CatalogMenu: FC<TProps> = ({
 		className
 	);
 
+	const { categories } = useShopCategories();
+
 	return (
-		<AppContext.Consumer>
-			{({ categories }) => (
-				<Spin
-					indicator={<LoadingOutlined />}
-					spinning={!!!categories}>
-					<List
-						className={classes}
-						{...props}>
-						{
-							categories && categories.map((category) => (
-								<List.Item key={`category-${category.id}`} className={styles["catalog-menu__item"]}>
-									<Link href={`/catalog/${category.id}`} className={styles["catalog-menu__link"]}>
-										<Space>
-											{icon}
-											{category.title}
-										</Space>
-									</Link>
-								</List.Item>
-							))
-						}
-					</List>
-				</Spin>
-			)}
-		</AppContext.Consumer>
+		<Spin
+			indicator={<LoadingOutlined />}
+			spinning={!!!categories}>
+			<List
+				className={classes}
+				{...props}>
+				{
+					categories && categories.map((category) => (
+						<List.Item key={`category-${category.id}`} className={styles["catalog-menu__item"]}>
+							<Link href={`/catalog/${category.id}`} className={styles["catalog-menu__link"]}>
+								<Space>
+									{icon}
+									{category.title}
+								</Space>
+							</Link>
+						</List.Item>
+					))
+				}
+			</List>
+		</Spin>
 	);
 };
 

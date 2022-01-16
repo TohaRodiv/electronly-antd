@@ -4,13 +4,15 @@ import { CategoryList } from "#molecules/category-list/CategoryList";
 import { ProductList } from "#molecules/product-list";
 import { Section } from "#molecules/section";
 import { Space } from "#molecules/space";
+import { TrackingOrderForm } from "#molecules/tracking-order-form";
 import { CategoryService } from "#services/backend/api/shop/CategoryService";
 import { ProductService } from "#services/backend/api/shop/ProductService";
 import { CacheService } from "#services/backend/cache/CacheService";
 import { TCategories } from "#types/categories/TCategories";
 import { TCategory } from "#types/categories/TCategory";
 import { TProducts } from "#types/products/TProducts";
-import { AppstoreOutlined } from "@ant-design/icons";
+import { AppstoreOutlined, SearchOutlined } from "@ant-design/icons";
+import Paragraph from "antd/lib/typography/Paragraph";
 import Title from "antd/lib/typography/Title";
 import { NextPage, NextPageContext } from "next";
 import { NextSeo } from "next-seo";
@@ -67,12 +69,31 @@ const CatalogPage: NextPage<TProps> = ({
 					</Section>
 				)
 			}
+			<Section theme="dark">
+				<Container>
+					<Section.Header>
+						<Title level={3}>
+							<Space>
+								<SearchOutlined />
+								Поиск заказа
+							</Space>
+						</Title>
+					</Section.Header>
+					<Section.Body>
+						<Paragraph style={{ color: "var(--ant-primary-1", }}>
+							Заказывали ранее у нас? Введите номер заказа, чтобы проверить его статус.
+						</Paragraph>
+						<TrackingOrderForm size="large" theme="light" />
+					</Section.Body>
+				</Container>
+			</Section>
 		</>
 	);
 };
 
-export const getServerSideProps = async ({req, res, query}: NextPageContext): Promise<TSProps> => {
+export const getServerSideProps = async ({ req, res, query }: NextPageContext): Promise<TSProps> => {
 	res && CacheService.setCachePage(res);
+
 	const props: TProps = {
 		categories: null,
 		products: null,

@@ -42,6 +42,12 @@
 		],
 		"#data/*": [
 			"./src/data/*"
+		],
+		"#constants/*": [
+			"./src/constants/*"
+		],
+		"#hooks/*": [
+			"./src/hooks/*"
 		]
 	}
   },

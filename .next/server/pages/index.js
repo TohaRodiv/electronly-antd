@@ -17,25 +17,24 @@ module.exports = {
 
 /***/ }),
 
-/***/ 161:
+/***/ 1092:
 /***/ ((module) => {
 
 // Exports
 module.exports = {
-	"main-carousel-item": "style_main-carousel-item__IQgN_",
-	"main-carousel-item__image": "style_main-carousel-item__image__FaUdJ",
-	"main-carousel-item__body-container": "style_main-carousel-item__body-container__4qkRQ",
-	"main-carousel-item__body": "style_main-carousel-item__body__b4N_c",
-	"main-carousel-item__body-inner": "style_main-carousel-item__body-inner__tMqQY",
-	"main-carousel-item__title": "style_main-carousel-item__title__icV_h",
-	"main-carousel-item__subtitle": "style_main-carousel-item__subtitle__yUd5O",
-	"main-carousel-item__scroll-down-icon": "style_main-carousel-item__scroll-down-icon__T8lIA"
+	"hero": "style_hero__AUPeD",
+	"hero__row": "style_hero__row__zizB7",
+	"hero__content": "style_hero__content__3azr0",
+	"hero__head": "style_hero__head__HKnax",
+	"hero__description": "style_hero__description__M34gY",
+	"hero__image-wrapper": "style_hero__image-wrapper__eWI4j",
+	"hero__scroll-down": "style_hero__scroll-down__wGoD_"
 };
 
 
 /***/ }),
 
-/***/ 826:
+/***/ 1503:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -73,148 +72,6 @@ var CategoryService = __webpack_require__(8993);
 // EXTERNAL MODULE: external "antd/lib/typography/Title"
 var Title_ = __webpack_require__(6492);
 var Title_default = /*#__PURE__*/__webpack_require__.n(Title_);
-// EXTERNAL MODULE: external "antd"
-var external_antd_ = __webpack_require__(5725);
-// EXTERNAL MODULE: ./src/components/atoms/image/index.ts + 1 modules
-var atoms_image = __webpack_require__(3630);
-// EXTERNAL MODULE: ./src/components/molecules/main-carousel/style.module.scss
-var style_module = __webpack_require__(161);
-var style_module_default = /*#__PURE__*/__webpack_require__.n(style_module);
-// EXTERNAL MODULE: external "classnames"
-var external_classnames_ = __webpack_require__(9003);
-var external_classnames_default = /*#__PURE__*/__webpack_require__.n(external_classnames_);
-// EXTERNAL MODULE: ./src/components/atoms/button-scroll-down/style.module.scss
-var button_scroll_down_style_module = __webpack_require__(3777);
-var button_scroll_down_style_module_default = /*#__PURE__*/__webpack_require__.n(button_scroll_down_style_module);
-// EXTERNAL MODULE: ./src/components/atoms/link/index.ts + 1 modules
-var atoms_link = __webpack_require__(5142);
-;// CONCATENATED MODULE: ./src/components/atoms/button-scroll-down/ButtonScrollDown.tsx
-
-
-
-
-const ButtonScrollDown = ({ className , classNameArrow , scrollTo ,  })=>{
-    const classes = external_classnames_default()((button_scroll_down_style_module_default())["button-scroll-down"], className);
-    const classesArrow = external_classnames_default()((button_scroll_down_style_module_default())["button-scroll-down__item"], classNameArrow);
-    return(/*#__PURE__*/ jsx_runtime_.jsx(atoms_link/* Link */.r, {
-        href: `#${scrollTo}`,
-        className: classes,
-        children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
-            className: classesArrow
-        })
-    }));
-};
-
-
-;// CONCATENATED MODULE: ./src/components/atoms/button-scroll-down/index.ts
-
-
-// EXTERNAL MODULE: external "next/router"
-var router_ = __webpack_require__(1853);
-;// CONCATENATED MODULE: ./src/components/molecules/main-carousel/CarouselItem.tsx
-
-
-
-
-
-
-
-
-
-
-
-const CarouselItem = ({ banner , className , scrollTo , ...props })=>{
-    const router = (0,router_.useRouter)();
-    const { id , title , subtitle , image ,  } = banner;
-    const classes = external_classnames_default()((style_module_default())["main-carousel-item"], className);
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        className: classes,
-        ...props,
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(atoms_image/* Image */.E, {
-                objectFit: "cover",
-                layout: "fill",
-                className: (style_module_default())["main-carousel-item__image"],
-                alt: title,
-                src: image
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: (style_module_default())["main-carousel-item__body"],
-                children: /*#__PURE__*/ jsx_runtime_.jsx(container/* Container */.W, {
-                    className: (style_module_default())["main-carousel-item__body-container"],
-                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        className: (style_module_default())["main-carousel-item__body-inner"],
-                        children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx((Title_default()), {
-                                level: 3,
-                                className: (style_module_default())["main-carousel-item__title"],
-                                children: title
-                            }),
-                            subtitle && /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                className: (style_module_default())["main-carousel-item__subtitle"],
-                                children: subtitle
-                            }),
-                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(space/* Space */.T, {
-                                justifyContent: "center",
-                                children: [
-                                    /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Button, {
-                                        onClick: ()=>{
-                                            router.push("/about");
-                                        },
-                                        size: "large",
-                                        icon: /*#__PURE__*/ jsx_runtime_.jsx(icons_.AlignLeftOutlined, {
-                                        }),
-                                        ghost: true,
-                                        children: "Подробнее"
-                                    }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Button, {
-                                        onClick: ()=>{
-                                            router.push("/catalog");
-                                        },
-                                        size: "large",
-                                        icon: /*#__PURE__*/ jsx_runtime_.jsx(icons_.ShoppingOutlined, {
-                                        }),
-                                        children: "В каталог"
-                                    })
-                                ]
-                            })
-                        ]
-                    })
-                })
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: (style_module_default())["main-carousel-item__scroll-down-icon"],
-                children: /*#__PURE__*/ jsx_runtime_.jsx(ButtonScrollDown, {
-                    classNameArrow: (style_module_default())["main-carousel-item__scroll-item"],
-                    scrollTo: scrollTo
-                })
-            })
-        ]
-    }));
-};
-
-
-;// CONCATENATED MODULE: ./src/components/molecules/main-carousel/MainCarousel.tsx
-
-
-
-const MainCarousel = ({ banners , scrollTo ,  })=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Carousel, {
-        autoplay: true,
-        effect: "fade",
-        dotPosition: "right",
-        children: banners.map((banner)=>/*#__PURE__*/ jsx_runtime_.jsx(CarouselItem, {
-                scrollTo: scrollTo,
-                banner: banner
-            }, banner.id)
-        )
-    }));
-};
-
-
-;// CONCATENATED MODULE: ./src/components/molecules/main-carousel/index.ts
-
-
 // EXTERNAL MODULE: ./src/data/about.ts
 var about = __webpack_require__(1879);
 ;// CONCATENATED MODULE: ./src/data/banners.ts
@@ -253,6 +110,123 @@ var Paragraph_ = __webpack_require__(1774);
 var Paragraph_default = /*#__PURE__*/__webpack_require__.n(Paragraph_);
 // EXTERNAL MODULE: external "next-seo"
 var external_next_seo_ = __webpack_require__(6641);
+// EXTERNAL MODULE: ./src/components/atoms/button-scroll-down/style.module.scss
+var style_module = __webpack_require__(3777);
+var style_module_default = /*#__PURE__*/__webpack_require__.n(style_module);
+// EXTERNAL MODULE: external "classnames"
+var external_classnames_ = __webpack_require__(9003);
+var external_classnames_default = /*#__PURE__*/__webpack_require__.n(external_classnames_);
+// EXTERNAL MODULE: ./src/components/atoms/link/index.ts + 1 modules
+var atoms_link = __webpack_require__(5142);
+;// CONCATENATED MODULE: ./src/components/atoms/button-scroll-down/ButtonScrollDown.tsx
+
+
+
+
+const ButtonScrollDown = ({ className , classNameArrow , scrollTo ,  })=>{
+    const classes = external_classnames_default()((style_module_default())["button-scroll-down"], className);
+    const classesArrow = external_classnames_default()((style_module_default())["button-scroll-down__item"], classNameArrow);
+    return(/*#__PURE__*/ jsx_runtime_.jsx(atoms_link/* Link */.r, {
+        href: `#${scrollTo}`,
+        className: classes,
+        children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
+            className: classesArrow
+        })
+    }));
+};
+
+
+;// CONCATENATED MODULE: ./src/components/atoms/button-scroll-down/index.ts
+
+
+// EXTERNAL MODULE: ./src/components/atoms/image/index.ts + 1 modules
+var atoms_image = __webpack_require__(3630);
+// EXTERNAL MODULE: external "antd"
+var external_antd_ = __webpack_require__(5725);
+// EXTERNAL MODULE: external "next/router"
+var router_ = __webpack_require__(1853);
+var router_default = /*#__PURE__*/__webpack_require__.n(router_);
+// EXTERNAL MODULE: ./src/components/molecules/hero/style.module.scss
+var hero_style_module = __webpack_require__(1092);
+var hero_style_module_default = /*#__PURE__*/__webpack_require__.n(hero_style_module);
+;// CONCATENATED MODULE: ./src/components/molecules/hero/Hero.tsx
+
+
+
+
+
+
+
+
+
+
+const Hero = ({ scrollTo ,  })=>{
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: (hero_style_module_default()).hero,
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx(container/* Container */.W, {
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                    className: (hero_style_module_default()).hero__row,
+                    children: [
+                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: (hero_style_module_default()).hero__content,
+                            children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx("h2", {
+                                    className: (hero_style_module_default()).hero__head,
+                                    children: about/* about.shortDescription */.j.shortDescription
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: (hero_style_module_default()).hero__description,
+                                    children: about/* about.fullDescription */.j.fullDescription
+                                }),
+                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)(space/* Space */.T, {
+                                    className: (hero_style_module_default()).hero__cta,
+                                    children: [
+                                        /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Button, {
+                                            onClick: ()=>{
+                                                router_default().push("/about");
+                                            },
+                                            size: "large",
+                                            icon: /*#__PURE__*/ jsx_runtime_.jsx(icons_.AlignLeftOutlined, {
+                                            }),
+                                            type: "primary",
+                                            ghost: true,
+                                            children: "Подробнее"
+                                        }),
+                                        /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Button, {
+                                            type: "primary",
+                                            onClick: ()=>{
+                                                router_default().push("/catalog");
+                                            },
+                                            size: "large",
+                                            icon: /*#__PURE__*/ jsx_runtime_.jsx(icons_.ShoppingOutlined, {
+                                            }),
+                                            children: "В каталог"
+                                        })
+                                    ]
+                                })
+                            ]
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: (hero_style_module_default())["hero__image-wrapper"],
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(atoms_image/* Image */.E, {
+                                width: 500,
+                                height: 400,
+                                src: "/workspace.svg"
+                            })
+                        })
+                    ]
+                })
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(ButtonScrollDown, {
+                className: (hero_style_module_default())["hero__scroll-down"],
+                scrollTo: scrollTo
+            })
+        ]
+    }));
+};
+
+
 ;// CONCATENATED MODULE: ./src/pages/index.tsx
 
 
@@ -273,19 +247,13 @@ var external_next_seo_ = __webpack_require__(6641);
 
 
 const HomePage = ({ news , products , categories , banners ,  })=>{
-    function millisToMinutesAndSeconds(millis) {
-        var minutes = Math.floor(millis / 60000);
-        var seconds = (millis % 60000 / 1000).toFixed(0);
-        return minutes + ":" + (+seconds < 10 ? '0' : '') + seconds;
-    }
     return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(external_next_seo_.NextSeo, {
                 description: about/* about.fullDescription */.j.fullDescription
             }),
             banners && /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-                children: /*#__PURE__*/ jsx_runtime_.jsx(MainCarousel, {
-                    banners: banners,
+                children: /*#__PURE__*/ jsx_runtime_.jsx(Hero, {
                     scrollTo: "tracking-order"
                 })
             }),
@@ -633,7 +601,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,197,758,4,917], () => (__webpack_exec__(826)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,4,197,758,917], () => (__webpack_exec__(1503)));
 module.exports = __webpack_exports__;
 
 })();

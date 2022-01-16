@@ -12,7 +12,7 @@ module.exports = require("@nestjsx/crud-request");
 
 /***/ }),
 
-/***/ 1444:
+/***/ 2591:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -60,15 +60,7 @@ const CategoryService = new class {
     }
 };
 
-;// CONCATENATED MODULE: ./src/services/backend/cache/CacheService.ts
-const CacheService = new class {
-    setCachePage(res) {
-        res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=72000");
-    }
-};
-
 ;// CONCATENATED MODULE: ./src/pages/api/shop/categories.ts
-
 
 
 const handlerCategories = (req, res)=>{
@@ -78,7 +70,6 @@ const handlerCategories = (req, res)=>{
         if (error) {
             res.status(error.statusCode).json(error);
         } else {
-            res && CacheService.setCachePage(res);
             res.status(200).json(payload);
         }
     });
@@ -95,7 +86,7 @@ const handlerCategories = (req, res)=>{
 var __webpack_require__ = require("../../../webpack-api-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [379], () => (__webpack_exec__(1444)));
+var __webpack_exports__ = __webpack_require__.X(0, [379], () => (__webpack_exec__(2591)));
 module.exports = __webpack_exports__;
 
 })();

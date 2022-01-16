@@ -1,0 +1,68 @@
+@import "./../../_settings/settings";
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--ant-primary-1);
+
+  // Высота viewport - высота шапки
+  min-height: calc(100vh - 50px);
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  &__content {
+    display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+    position: relative;
+    flex: 1;
+  }
+
+  &__head {
+    line-height: 1;
+    font-weight: 600;
+    font-size: 1.8rem;
+
+	@include media("lg") {
+		font-size: 2.5rem;
+	}
+  }
+
+  &__head,
+  &__description {
+    color: #000;
+    margin: 0;
+    padding: 0;
+	
+    @include media("lg") {
+		color: #000;
+    }
+  }
+
+  &__image-wrapper {
+    display: none;
+
+    @include media("lg") {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__cta {
+  }
+
+  &__scroll-down {
+    position: absolute;
+    bottom: 0;
+  }
+}

@@ -28,7 +28,7 @@ const ProductOrderForm: FC<TProps> = ({
 		const { error, payload }: { error: any, payload: TOrder } = await OrderService.createAndSave(data);
 
 		if (error) {
-			message.error(`Произошла ошибка: ${error.message}. Код: ${error.statusCode}`);
+			message.error("Произошла ошибка:", error);
 		} else {
 			message.success("Ваша заявка успешно отправилась!");
 			onOrder && onOrder(payload);

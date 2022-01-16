@@ -277,7 +277,7 @@ const ProductOrderForm = ({ product , onOrder ,  })=>{
         const data = getPreparedFields(fields);
         const { error , payload  } = await OrderService.createAndSave(data);
         if (error) {
-            external_antd_.message.error(`Произошла ошибка: ${error.message}. Код: ${error.statusCode}`);
+            external_antd_.message.error("Произошла ошибка:", error);
         } else {
             external_antd_.message.success("Ваша заявка успешно отправилась!");
             onOrder && onOrder(payload);

@@ -3,7 +3,7 @@ import { RequestQueryBuilder } from "@nestjsx/crud-request";
 
 export abstract class BaseAPIService {
 
-	constructor() {
+	constructor() {	
 		RequestQueryBuilder.setOptions({
 			delim: "||",
 			delimStr: ",",

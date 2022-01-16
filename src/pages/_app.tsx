@@ -1,16 +1,14 @@
 import { AppLayout } from "#templates/app-layout";
-import { BackTop, ConfigProvider, message } from "antd";
+import { BackTop, Button, ConfigProvider, } from "antd";
 import type { AppProps } from "next/app"
 import { useRouter } from "next/router";
-import { ReactElement, ReactNode, useEffect, useState } from "react";
+import { ReactElement, ReactNode, useEffect, } from "react";
 import NProgress from "nprogress";
 import { NextPage } from "next";
-import { AppProvider } from "src/context/AppContext";
 import "../styles/style.scss";
 import { DefaultSeo } from "next-seo";
 import { seo } from "#data/seo";
-import { TCategories } from "#types/categories/TCategories";
-import { ShopCategoryService } from "#services/frontend/api/ShopCategoryService";
+import { CaretUpOutlined, UpOutlined } from "@ant-design/icons";
 
 type NextPageWithLayout = NextPage & {
 	getLayout?: (page: ReactElement) => ReactNode
@@ -24,18 +22,8 @@ type AppPropsWithLayout = AppProps & {
 function App({ Component, pageProps }: AppPropsWithLayout) {
 
 	const router = useRouter();
-	const [categories, setCategories] = useState<TCategories | null>(null);
 
 	useEffect(() => {
-
-		(async () => {
-			const { payload, error, } = await ShopCategoryService.getMany();
-			if (!error) {
-				setCategories(payload);
-			} else {
-				console.error(`Error fetch categories. ${error.message}: ${error.statusCode}`);
-			}
-		})();
 
 		const handleStart = () => {
 			NProgress.start();
@@ -64,11 +52,14 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
 
 	return (
 		<ConfigProvider>
-			<AppProvider value={{categories}}>
-				<DefaultSeo {...seo} />
-				{getLayout(<Component {...pageProps} />)}
-				<BackTop />
-			</AppProvider>
+			<DefaultSeo {...seo} />
+			{getLayout(<Component {...pageProps} />)}
+			<BackTop>
+				<Button
+					size="large"
+					type="default"
+					icon={<CaretUpOutlined />} />
+			</BackTop>
 		</ConfigProvider>
 	);
 }

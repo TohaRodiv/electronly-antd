@@ -31,6 +31,8 @@ var product_list = __webpack_require__(6222);
 var section = __webpack_require__(9360);
 // EXTERNAL MODULE: ./src/components/molecules/space/index.ts + 1 modules
 var space = __webpack_require__(3530);
+// EXTERNAL MODULE: ./src/components/molecules/tracking-order-form/index.ts + 1 modules
+var tracking_order_form = __webpack_require__(6004);
 // EXTERNAL MODULE: ./src/services/backend/api/shop/CategoryService.ts + 1 modules
 var CategoryService = __webpack_require__(8993);
 // EXTERNAL MODULE: ./src/services/backend/api/shop/ProductService.ts + 1 modules
@@ -44,12 +46,17 @@ const CacheService = new class {
 
 // EXTERNAL MODULE: external "@ant-design/icons"
 var icons_ = __webpack_require__(7066);
+// EXTERNAL MODULE: external "antd/lib/typography/Paragraph"
+var Paragraph_ = __webpack_require__(1774);
+var Paragraph_default = /*#__PURE__*/__webpack_require__.n(Paragraph_);
 // EXTERNAL MODULE: external "antd/lib/typography/Title"
 var Title_ = __webpack_require__(6492);
 var Title_default = /*#__PURE__*/__webpack_require__.n(Title_);
 // EXTERNAL MODULE: external "next-seo"
 var external_next_seo_ = __webpack_require__(6641);
 ;// CONCATENATED MODULE: ./src/pages/catalog/[[...id]].tsx
+
+
 
 
 
@@ -103,6 +110,39 @@ const CatalogPage = ({ products , categories , category ,  })=>{
                         })
                     })
                 })
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
+                theme: "dark",
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(container/* Container */.W, {
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Header */.$.Header, {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx((Title_default()), {
+                                level: 3,
+                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(space/* Space */.T, {
+                                    children: [
+                                        /*#__PURE__*/ jsx_runtime_.jsx(icons_.SearchOutlined, {
+                                        }),
+                                        "Поиск заказа"
+                                    ]
+                                })
+                            })
+                        }),
+                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)(section/* Section.Body */.$.Body, {
+                            children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx((Paragraph_default()), {
+                                    style: {
+                                        color: "var(--ant-primary-1"
+                                    },
+                                    children: "Заказывали ранее у нас? Введите номер заказа, чтобы проверить его статус."
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx(tracking_order_form/* TrackingOrderForm */.N, {
+                                    size: "large",
+                                    theme: "light"
+                                })
+                            ]
+                        })
+                    ]
+                })
             })
         ]
     }));
@@ -155,6 +195,13 @@ module.exports = require("@nestjsx/crud-request");
 /***/ ((module) => {
 
 module.exports = require("antd");
+
+/***/ }),
+
+/***/ 1774:
+/***/ ((module) => {
+
+module.exports = require("antd/lib/typography/Paragraph");
 
 /***/ }),
 
@@ -319,7 +366,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,758], () => (__webpack_exec__(276)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,4,758], () => (__webpack_exec__(276)));
 module.exports = __webpack_exports__;
 
 })();

@@ -52,6 +52,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+	color: var(--ant-primary-color);
+}
+
 .ant-menu-dark .ant-menu-sub,
 .ant-menu.ant-menu-dark,
 .ant-menu.ant-menu-dark .ant-menu-sub {
@@ -67,6 +71,7 @@ h5,
 h6,
 .ant-descriptions-title {
   @include custom-head();
+  color: var(--ant-primary-color);
 }
 
 button,

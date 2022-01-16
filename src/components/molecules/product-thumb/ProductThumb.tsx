@@ -46,7 +46,7 @@ const ProductThumb: FC<TProductThumbProps> = ({
 	const actions = [];
 
 	if (!hideOrder) {
-		actions.push(<ButtonGoToOrder type="default" key="product-thumb-image" onClick={() => { handleGoToOrder(product.id); }} />);
+		actions.push(<ButtonGoToOrder key="product-thumb-image" onClick={() => { handleGoToOrder(product.id); }} />);
 	}
 
 	return (

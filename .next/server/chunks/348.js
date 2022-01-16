@@ -124,7 +124,6 @@ const ProductThumb = ({ product , hideOrder , className , ...props })=>{
     const actions = [];
     if (!hideOrder) {
         actions.push(/*#__PURE__*/ jsx_runtime_.jsx(button_go_to_order/* ButtonGoToOrder */.D, {
-            type: "default",
             onClick: ()=>{
                 handleGoToOrder(product.id);
             }

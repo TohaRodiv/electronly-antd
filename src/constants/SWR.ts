@@ -1,0 +1,1 @@
+export const SWR_SHOP_CATEGORIES = "/shop/categories";

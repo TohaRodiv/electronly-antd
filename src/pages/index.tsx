@@ -20,6 +20,7 @@ import Paragraph from "antd/lib/typography/Paragraph";
 import { NextSeo } from "next-seo";
 import { about } from "#data/about";
 import { TBanner } from "#types/banner/TBanner";
+import { Hero } from "#molecules/hero/Hero";
 
 type TProps = {
 	news: TArticles | null
@@ -28,17 +29,12 @@ type TProps = {
 	banners: TBanner[]
 }
 
-type TSProps = {
-	props: TProps
-}
-
 const HomePage: NextPage<TProps> = ({
 	news,
 	products,
 	categories,
 	banners,
 }) => {
-	function millisToMinutesAndSeconds(millis: number) { var minutes = Math.floor(millis / 60000); var seconds = ((millis % 60000) / 1000).toFixed(0); return minutes + ":" + (+seconds < 10 ? '0' : '') + seconds; }
 	return (
 		<>
 			<NextSeo
@@ -46,7 +42,7 @@ const HomePage: NextPage<TProps> = ({
 			{
 				banners && (
 					<>
-						<MainCarousel banners={banners} scrollTo="tracking-order" />
+						<Hero scrollTo="tracking-order" />
 					</>
 				)
 			}
