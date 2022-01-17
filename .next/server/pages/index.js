@@ -36,7 +36,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1096:
+/***/ 4205:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -74,37 +74,6 @@ var CategoryService = __webpack_require__(8993);
 // EXTERNAL MODULE: external "antd/lib/typography/Title"
 var Title_ = __webpack_require__(6492);
 var Title_default = /*#__PURE__*/__webpack_require__.n(Title_);
-// EXTERNAL MODULE: ./src/data/about.ts
-var about = __webpack_require__(1879);
-;// CONCATENATED MODULE: ./src/data/banners.ts
-
-const banners = [
-    {
-        id: 1,
-        title: `${about/* about.name */.j.name} - ${about/* about.shortDescription */.j.shortDescription}`,
-        subtitle: about/* about.fullDescription */.j.fullDescription,
-        image: "/banners/hero-1.jpg",
-        images: [
-            {
-                id: 1,
-                path: ""
-            }, 
-        ]
-    },
-    {
-        id: 2,
-        title: `${about/* about.name */.j.name} - ${about/* about.shortDescription */.j.shortDescription}`,
-        subtitle: about/* about.fullDescription */.j.fullDescription,
-        image: "/banners/hero-2.webp",
-        images: [
-            {
-                id: 1,
-                path: ""
-            }, 
-        ]
-    }, 
-];
-
 // EXTERNAL MODULE: ./src/components/molecules/tracking-order-form/index.ts + 1 modules
 var tracking_order_form = __webpack_require__(6004);
 // EXTERNAL MODULE: external "antd/lib/typography/Paragraph"
@@ -112,6 +81,8 @@ var Paragraph_ = __webpack_require__(1774);
 var Paragraph_default = /*#__PURE__*/__webpack_require__.n(Paragraph_);
 // EXTERNAL MODULE: external "next-seo"
 var external_next_seo_ = __webpack_require__(6641);
+// EXTERNAL MODULE: ./src/data/about.ts
+var about = __webpack_require__(1879);
 // EXTERNAL MODULE: ./src/components/atoms/button-scroll-down/style.module.scss
 var style_module = __webpack_require__(3777);
 var style_module_default = /*#__PURE__*/__webpack_require__.n(style_module);
@@ -260,16 +231,61 @@ const Hero = ({ scrollTo ,  })=>{
 
 
 
-
-const HomePage = ({ news , products , categories , banners ,  })=>{
+const HomePage = ({ news , products , categories ,  })=>{
     return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(external_next_seo_.NextSeo, {
                 description: about/* about.fullDescription */.j.fullDescription
             }),
-            banners && /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-                children: /*#__PURE__*/ jsx_runtime_.jsx(Hero, {
-                    scrollTo: "tracking-order"
+            /*#__PURE__*/ jsx_runtime_.jsx(Hero, {
+                scrollTo: "tracking-order"
+            }),
+            categories && categories.length && /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
+                theme: "dark",
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(container/* Container */.W, {
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Header */.$.Header, {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx((Title_default()), {
+                                level: 3,
+                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(space/* Space */.T, {
+                                    children: [
+                                        /*#__PURE__*/ jsx_runtime_.jsx(icons_.AppstoreOutlined, {
+                                        }),
+                                        "Категории"
+                                    ]
+                                })
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Body */.$.Body, {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(CategoryList/* CategoryList */.o, {
+                                categories: categories
+                            })
+                        })
+                    ]
+                })
+            }),
+            products && products.length && /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
+                theme: "light",
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(container/* Container */.W, {
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Header */.$.Header, {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx((Title_default()), {
+                                level: 3,
+                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(space/* Space */.T, {
+                                    children: [
+                                        /*#__PURE__*/ jsx_runtime_.jsx(icons_.StarOutlined, {
+                                        }),
+                                        "Новинки"
+                                    ]
+                                })
+                            })
+                        }),
+                        /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Body */.$.Body, {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(product_list/* ProductList */.c, {
+                                products: products
+                            })
+                        })
+                    ]
                 })
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
@@ -306,54 +322,6 @@ const HomePage = ({ news , products , categories , banners ,  })=>{
                     ]
                 })
             }),
-            products && products.length && /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
-                theme: "light",
-                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(container/* Container */.W, {
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Header */.$.Header, {
-                            children: /*#__PURE__*/ jsx_runtime_.jsx((Title_default()), {
-                                level: 3,
-                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(space/* Space */.T, {
-                                    children: [
-                                        /*#__PURE__*/ jsx_runtime_.jsx(icons_.StarOutlined, {
-                                        }),
-                                        "Новинки"
-                                    ]
-                                })
-                            })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Body */.$.Body, {
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(product_list/* ProductList */.c, {
-                                products: products
-                            })
-                        })
-                    ]
-                })
-            }),
-            categories && categories.length && /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
-                theme: "dark",
-                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(container/* Container */.W, {
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Header */.$.Header, {
-                            children: /*#__PURE__*/ jsx_runtime_.jsx((Title_default()), {
-                                level: 3,
-                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(space/* Space */.T, {
-                                    children: [
-                                        /*#__PURE__*/ jsx_runtime_.jsx(icons_.AppstoreOutlined, {
-                                        }),
-                                        "Категории"
-                                    ]
-                                })
-                            })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Body */.$.Body, {
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(CategoryList/* CategoryList */.o, {
-                                categories: categories
-                            })
-                        })
-                    ]
-                })
-            }),
             news && news.length && /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
                 theme: "light",
                 children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(container/* Container */.W, {
@@ -385,8 +353,7 @@ const getStaticProps = async ()=>{
     const props = {
         news: null,
         products: null,
-        categories: null,
-        banners: banners
+        categories: null
     };
     props.news = (await NewsService/* NewsService.getMany */.Y.getMany()).payload;
     props.products = (await ProductService/* ProductService.getMany */.M.getMany()).payload;
@@ -616,7 +583,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,4,197,758,917], () => (__webpack_exec__(1096)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,4,197,758,917], () => (__webpack_exec__(4205)));
 module.exports = __webpack_exports__;
 
 })();

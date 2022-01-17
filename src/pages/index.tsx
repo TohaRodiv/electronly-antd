@@ -2,7 +2,7 @@ import { Container } from "#atoms/container";
 import { CategoryList } from "#molecules/category-list/CategoryList";
 import { NewsList } from "#molecules/news-list";
 import { ProductList } from "#molecules/product-list";
-import type { GetStaticProps, NextPage, NextPageContext } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { Section } from "#molecules/section";
 import { AppstoreOutlined, ReadOutlined, SearchOutlined, StarOutlined } from "@ant-design/icons";
 import { Space } from "#molecules/space";
@@ -13,57 +13,47 @@ import { TArticles } from "#types/articles/TArticles";
 import { TCategories } from "#types/categories/TCategories";
 import { CategoryService } from "#services/backend/api/shop/CategoryService";
 import Title from "antd/lib/typography/Title";
-import { MainCarousel } from "#molecules/main-carousel";
-import { banners as _banners } from "#data/banners";
 import { TrackingOrderForm } from "#molecules/tracking-order-form";
 import Paragraph from "antd/lib/typography/Paragraph";
 import { NextSeo } from "next-seo";
 import { about } from "#data/about";
-import { TBanner } from "#types/banner/TBanner";
 import { Hero } from "#molecules/hero/Hero";
 
 type TProps = {
 	news: TArticles | null
 	products: TProducts | null
 	categories: TCategories | null
-	banners: TBanner[]
 }
 
 const HomePage: NextPage<TProps> = ({
 	news,
 	products,
 	categories,
-	banners,
 }) => {
 	return (
 		<>
 			<NextSeo
 				description={about.fullDescription} />
+			<Hero scrollTo="tracking-order" />
 			{
-				banners && (
-					<>
-						<Hero scrollTo="tracking-order" />
-					</>
+				categories && categories.length && (
+					<Section theme="dark">
+						<Container>
+							<Section.Header>
+								<Title level={3}>
+									<Space>
+										<AppstoreOutlined />
+										Категории
+									</Space>
+								</Title>
+							</Section.Header>
+							<Section.Body>
+								<CategoryList categories={categories} />
+							</Section.Body>
+						</Container>
+					</Section>
 				)
 			}
-			<Section theme="dark" id="tracking-order">
-				<Container>
-					<Section.Header>
-						<Title level={3}>
-							<Space>
-								<SearchOutlined />
-								Поиск заказа
-							</Space>
-						</Title>
-					</Section.Header>
-					<Section.Body>
-						<Paragraph style={{ color: "var(--ant-primary-1)", }}>
-							Заказывали ранее у нас? Введите номер заказа, чтобы проверить его статус.
-						</Paragraph>
-						<TrackingOrderForm size="large" theme="light" />
-					</Section.Body>
-				</Container>
-			</Section>
 
 			{
 				products && products.length && (
@@ -84,25 +74,24 @@ const HomePage: NextPage<TProps> = ({
 					</Section>
 				)
 			}
-			{
-				categories && categories.length && (
-					<Section theme="dark">
-						<Container>
-							<Section.Header>
-								<Title level={3}>
-									<Space>
-										<AppstoreOutlined />
-										Категории
-									</Space>
-								</Title>
-							</Section.Header>
-							<Section.Body>
-								<CategoryList categories={categories} />
-							</Section.Body>
-						</Container>
-					</Section>
-				)
-			}
+			<Section theme="dark" id="tracking-order">
+				<Container>
+					<Section.Header>
+						<Title level={3}>
+							<Space>
+								<SearchOutlined />
+								Поиск заказа
+							</Space>
+						</Title>
+					</Section.Header>
+					<Section.Body>
+						<Paragraph style={{ color: "var(--ant-primary-1)", }}>
+							Заказывали ранее у нас? Введите номер заказа, чтобы проверить его статус.
+						</Paragraph>
+						<TrackingOrderForm size="large" theme="light" />
+					</Section.Body>
+				</Container>
+			</Section>
 			{
 				news && news.length && (
 					<Section theme="light">
@@ -132,7 +121,6 @@ export const getStaticProps: GetStaticProps = async () => {
 		news: null,
 		products: null,
 		categories: null,
-		banners: _banners,
 	};
 
 	props.news = (await NewsService.getMany()).payload;
