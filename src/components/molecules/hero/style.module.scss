@@ -13,7 +13,7 @@
 
   // Высота viewport - высота шапки
   min-height: calc(100vh - 50px);
-  padding: 2rem 0;
+  padding: 3rem 0;
 
   @include media("sm") {
     padding-top: 0;
@@ -101,5 +101,9 @@
   &__scroll-down {
     position: absolute;
     bottom: -25px;
+
+	@include media("lg") {
+		bottom: 0;
+	}
   }
 }
