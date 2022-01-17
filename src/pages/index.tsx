@@ -34,7 +34,7 @@ const HomePage: NextPage<TProps> = ({
 		<>
 			<NextSeo
 				description={about.fullDescription} />
-			<Hero scrollTo="tracking-order" />
+			<Hero />
 			{
 				categories && categories.length && (
 					<Section theme="dark">
@@ -74,7 +74,7 @@ const HomePage: NextPage<TProps> = ({
 					</Section>
 				)
 			}
-			<Section theme="dark" id="tracking-order">
+			<Section theme="dark">
 				<Container>
 					<Section.Header>
 						<Title level={3}>

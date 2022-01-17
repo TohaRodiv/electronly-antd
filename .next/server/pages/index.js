@@ -89,18 +89,14 @@ var style_module_default = /*#__PURE__*/__webpack_require__.n(style_module);
 // EXTERNAL MODULE: external "classnames"
 var external_classnames_ = __webpack_require__(9003);
 var external_classnames_default = /*#__PURE__*/__webpack_require__.n(external_classnames_);
-// EXTERNAL MODULE: ./src/components/atoms/link/index.ts + 1 modules
-var atoms_link = __webpack_require__(5142);
 ;// CONCATENATED MODULE: ./src/components/atoms/button-scroll-down/ButtonScrollDown.tsx
 
 
 
-
-const ButtonScrollDown = ({ className , classNameArrow , scrollTo ,  })=>{
+const ButtonScrollDown = ({ className , classNameArrow ,  })=>{
     const classes = external_classnames_default()((style_module_default())["button-scroll-down"], className);
     const classesArrow = external_classnames_default()((style_module_default())["button-scroll-down__item"], classNameArrow);
-    return(/*#__PURE__*/ jsx_runtime_.jsx(atoms_link/* Link */.r, {
-        href: `#${scrollTo}`,
+    return(/*#__PURE__*/ jsx_runtime_.jsx("span", {
         className: classes,
         children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
             className: classesArrow
@@ -136,7 +132,7 @@ var next_image = __webpack_require__(5675);
 
 
 
-const Hero = ({ scrollTo ,  })=>{
+const Hero = ({})=>{
     return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: (hero_style_module_default()).hero,
         children: [
@@ -205,8 +201,7 @@ const Hero = ({ scrollTo ,  })=>{
                 })
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(ButtonScrollDown, {
-                className: (hero_style_module_default())["hero__scroll-down"],
-                scrollTo: scrollTo
+                className: (hero_style_module_default())["hero__scroll-down"]
             })
         ]
     }));
@@ -238,7 +233,6 @@ const HomePage = ({ news , products , categories ,  })=>{
                 description: about/* about.fullDescription */.j.fullDescription
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(Hero, {
-                scrollTo: "tracking-order"
             }),
             categories && categories.length && /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
                 theme: "dark",
@@ -290,7 +284,6 @@ const HomePage = ({ news , products , categories ,  })=>{
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(section/* Section */.$, {
                 theme: "dark",
-                id: "tracking-order",
                 children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(container/* Container */.W, {
                     children: [
                         /*#__PURE__*/ jsx_runtime_.jsx(section/* Section.Header */.$.Header, {

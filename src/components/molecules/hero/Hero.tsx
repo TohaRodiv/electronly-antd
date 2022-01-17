@@ -10,12 +10,9 @@ import styles from "./style.module.scss";
 import WorkspaceImage from "./../../../../public/workspace.svg";
 import Image from "next/image";
 
-type TProps = {
-	scrollTo: string
-}
+type TProps = {}
 
 const Hero: FC<TProps> = ({
-	scrollTo,
 }) => {
 	return (
 		<div className={styles["hero"]}>
@@ -56,7 +53,7 @@ const Hero: FC<TProps> = ({
 					</div>
 				</div>
 			</Container>
-			<ButtonScrollDown className={styles["hero__scroll-down"]} scrollTo={scrollTo} />
+			<ButtonScrollDown className={styles["hero__scroll-down"]} />
 		</div>
 	);
 };
