@@ -1,6 +1,5 @@
 import { ButtonScrollDown } from "#atoms/button-scroll-down";
 import { Container } from "#atoms/container";
-import { Image } from "#atoms/image";
 import { about } from "#data/about";
 import { Space } from "#molecules/space";
 import { AlignLeftOutlined, ShoppingOutlined } from "@ant-design/icons";
@@ -8,6 +7,8 @@ import { Button } from "antd";
 import router from "next/router";
 import { FC } from "react"
 import styles from "./style.module.scss";
+import WorkspaceImage from "./../../../../public/workspace.svg";
+import Image from "next/image";
 
 type TProps = {
 	scrollTo: string
@@ -21,6 +22,13 @@ const Hero: FC<TProps> = ({
 			<Container>
 				<div className={styles["hero__row"]}>
 					<div className={styles["hero__content"]}>
+						<div className={styles["hero__image-wrapper-mobile"]}>
+							<Image
+								alt={about.name}
+								width={220}
+								height={220}
+								src={WorkspaceImage} />
+						</div>
 						<h2 className={styles["hero__head"]}>{about.shortDescription}</h2>
 						<div className={styles["hero__description"]}>{about.fullDescription}</div>
 						<Space className={styles["hero__cta"]}>
@@ -28,12 +36,12 @@ const Hero: FC<TProps> = ({
 								onClick={() => { router.push("/about") }}
 								size="large"
 								icon={<AlignLeftOutlined />}
-								type="primary"
+								type="default"
 								ghost>
 								Подробнее
 							</Button>
 							<Button
-								type="primary"
+								type="default"
 								onClick={() => { router.push("/catalog") }}
 								size="large"
 								icon={<ShoppingOutlined />}>В каталог</Button>
@@ -41,9 +49,10 @@ const Hero: FC<TProps> = ({
 					</div>
 					<div className={styles["hero__image-wrapper"]}>
 						<Image
-							width={500}
-							height={400}
-							src="/workspace.svg" />
+							alt={about.name}
+							width={600}
+							height={600}
+							src={WorkspaceImage} />
 					</div>
 				</div>
 			</Container>

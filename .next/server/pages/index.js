@@ -28,13 +28,14 @@ module.exports = {
 	"hero__head": "style_hero__head__HKnax",
 	"hero__description": "style_hero__description__M34gY",
 	"hero__image-wrapper": "style_hero__image-wrapper__eWI4j",
+	"hero__image-wrapper-mobile": "style_hero__image-wrapper-mobile__15F_k",
 	"hero__scroll-down": "style_hero__scroll-down__wGoD_"
 };
 
 
 /***/ }),
 
-/***/ 1503:
+/***/ 1096:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -139,8 +140,6 @@ const ButtonScrollDown = ({ className , classNameArrow , scrollTo ,  })=>{
 ;// CONCATENATED MODULE: ./src/components/atoms/button-scroll-down/index.ts
 
 
-// EXTERNAL MODULE: ./src/components/atoms/image/index.ts + 1 modules
-var atoms_image = __webpack_require__(3630);
 // EXTERNAL MODULE: external "antd"
 var external_antd_ = __webpack_require__(5725);
 // EXTERNAL MODULE: external "next/router"
@@ -149,7 +148,12 @@ var router_default = /*#__PURE__*/__webpack_require__.n(router_);
 // EXTERNAL MODULE: ./src/components/molecules/hero/style.module.scss
 var hero_style_module = __webpack_require__(1092);
 var hero_style_module_default = /*#__PURE__*/__webpack_require__.n(hero_style_module);
+;// CONCATENATED MODULE: ./public/workspace.svg
+/* harmony default export */ const workspace = ({"src":"/_next/static/media/workspace.8c4563d7.svg","height":473,"width":500});
+// EXTERNAL MODULE: ./node_modules/next/image.js
+var next_image = __webpack_require__(5675);
 ;// CONCATENATED MODULE: ./src/components/molecules/hero/Hero.tsx
+
 
 
 
@@ -171,6 +175,15 @@ const Hero = ({ scrollTo ,  })=>{
                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                             className: (hero_style_module_default()).hero__content,
                             children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                                    className: (hero_style_module_default())["hero__image-wrapper-mobile"],
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx(next_image["default"], {
+                                        alt: about/* about.name */.j.name,
+                                        width: 220,
+                                        height: 220,
+                                        src: workspace
+                                    })
+                                }),
                                 /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                                     className: (hero_style_module_default()).hero__head,
                                     children: about/* about.shortDescription */.j.shortDescription
@@ -189,12 +202,12 @@ const Hero = ({ scrollTo ,  })=>{
                                             size: "large",
                                             icon: /*#__PURE__*/ jsx_runtime_.jsx(icons_.AlignLeftOutlined, {
                                             }),
-                                            type: "primary",
+                                            type: "default",
                                             ghost: true,
                                             children: "Подробнее"
                                         }),
                                         /*#__PURE__*/ jsx_runtime_.jsx(external_antd_.Button, {
-                                            type: "primary",
+                                            type: "default",
                                             onClick: ()=>{
                                                 router_default().push("/catalog");
                                             },
@@ -209,10 +222,11 @@ const Hero = ({ scrollTo ,  })=>{
                         }),
                         /*#__PURE__*/ jsx_runtime_.jsx("div", {
                             className: (hero_style_module_default())["hero__image-wrapper"],
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(atoms_image/* Image */.E, {
-                                width: 500,
-                                height: 400,
-                                src: "/workspace.svg"
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(next_image["default"], {
+                                alt: about/* about.name */.j.name,
+                                width: 600,
+                                height: 600,
+                                src: workspace
                             })
                         })
                     ]
@@ -601,7 +615,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,4,197,758,917], () => (__webpack_exec__(1503)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,675,290,261,303,936,348,4,197,758,917], () => (__webpack_exec__(1096)));
 module.exports = __webpack_exports__;
 
 })();
