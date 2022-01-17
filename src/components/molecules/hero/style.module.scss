@@ -16,7 +16,7 @@
   padding: 3rem 0;
 
   @include media("sm") {
-    padding-top: 0;
+    padding: 0;
   }
 
   @include media("lg") {
