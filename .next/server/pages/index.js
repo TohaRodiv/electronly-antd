@@ -29,6 +29,7 @@ module.exports = {
 	"hero__description": "style_hero__description__M34gY",
 	"hero__image-wrapper": "style_hero__image-wrapper__eWI4j",
 	"hero__image-wrapper-mobile": "style_hero__image-wrapper-mobile__15F_k",
+	"hero__cta": "style_hero__cta__RpxMq",
 	"hero__scroll-down": "style_hero__scroll-down__wGoD_"
 };
 
