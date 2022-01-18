@@ -39,6 +39,21 @@
     flex: 1;
   }
 
+  &__app-logo {
+	  margin-bottom: -1rem;
+	  font-size: 1.8rem;
+	  color: var(--ant-primary-color-active);
+	  font-variant: all-small-caps;
+	  
+	  & > span {
+		  justify-content: center;
+
+		  @include media("lg") {
+			justify-content: flex-start;
+		}
+	  }
+  }
+
   &__head {
     line-height: 1;
     font-weight: 600;

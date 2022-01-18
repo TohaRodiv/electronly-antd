@@ -9,6 +9,7 @@ import { FC } from "react"
 import styles from "./style.module.scss";
 import WorkspaceImage from "./../../../../public/workspace.svg";
 import Image from "next/image";
+import { AppLogo } from "#molecules/app-logo";
 
 type TProps = {}
 
@@ -26,6 +27,7 @@ const Hero: FC<TProps> = ({
 								height={220}
 								src={WorkspaceImage} />
 						</div>
+						<AppLogo className={styles["hero__app-logo"]} />
 						<h2 className={styles["hero__head"]}>{about.shortDescription}</h2>
 						<div className={styles["hero__description"]}>{about.fullDescription}</div>
 						<Space className={styles["hero__cta"]}>
