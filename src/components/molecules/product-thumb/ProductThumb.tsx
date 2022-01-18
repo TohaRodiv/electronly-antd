@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import { Link } from "#atoms/link";
 import { CategoryLink } from "#molecules/category-link";
 import { Image } from "#atoms/image";
+import classNames from "classnames";
 
 export type TProductThumbProps = {
 	product: TProduct
@@ -25,6 +26,14 @@ const ProductThumb: FC<TProductThumbProps> = ({
 	...props
 }) => {
 	const router = useRouter();
+
+	const classes = classNames(
+		styles["product-thumb"],
+		{
+			[styles["product-thumb--with-sale"]]: !!product.crossed_price
+		},
+		className,
+	);
 
 	const img = (
 		<Link href={`/product/${product.id}`} className={className}>
@@ -52,7 +61,7 @@ const ProductThumb: FC<TProductThumbProps> = ({
 	return (
 		<Card
 			bodyStyle={{ flex: "1 1 auto", }}
-			className={styles["product-thumb"]}
+			className={classes}
 			actions={actions}
 			cover={img}
 			{...props}>

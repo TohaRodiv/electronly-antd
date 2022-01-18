@@ -9,18 +9,18 @@
 
   background-color: #000;
 
-  background-image: linear-gradient(120deg, #000 50%, #777 calc(50% + 1px));
+  background-image: linear-gradient(120deg, #000 50%, #888 calc(50% + 1px));
 
   // Высота viewport - высота шапки
   min-height: calc(100vh - 50px);
   padding: 3rem 0;
 
-  @include media("sm") {
+  @include media("lg") {
     padding: 0;
   }
 
   @include media("lg") {
-    background-image: linear-gradient(120deg, #000 50%, #aaa calc(50% + 1px));
+    background-image: linear-gradient(120deg, #000 50%, #DDD calc(50% + 1px));
   }
 
   &__row {
@@ -100,7 +100,7 @@
 
   &__scroll-down {
     position: absolute;
-    bottom: -25px;
+    bottom: -15px;
 
 	@include media("lg") {
 		bottom: 0;
