@@ -7,7 +7,7 @@ import { Button } from "antd";
 import router from "next/router";
 import { FC } from "react"
 import styles from "./style.module.scss";
-import WorkspaceImage from "./../../../../public/workspace.svg";
+import WorkspaceImage from "./../../../../public/images/workspace.svg";
 import Image from "next/image";
 import { AppLogo } from "#molecules/app-logo";
 
