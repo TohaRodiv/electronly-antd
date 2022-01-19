@@ -7,4 +7,8 @@ export const usefullMenu = [
 		title: "Поиск заказа",
 		path: "/tracking",
 	},
+	{
+		title: "Задать вопрос",
+		path: "/ask-question",
+	},
 ];

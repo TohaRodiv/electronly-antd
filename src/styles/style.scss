@@ -165,3 +165,8 @@ body {
 		flex: 1;
 	}
 }
+
+.ant-menu-item:active, .ant-menu-submenu-title:active {
+	background-color: var(--ant-primary-color);
+	color: var(--ant-primary-1);
+}

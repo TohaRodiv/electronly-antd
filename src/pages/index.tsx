@@ -75,25 +75,7 @@ const HomePage: NextPage<TProps> = ({
 					</Section>
 				)
 			}
-			<Section theme="dark">
-				<Container>
-					<Section.Header>
-						<Title level={3}>
-							<Space>
-								<SearchOutlined />
-								Поиск заказа
-							</Space>
-						</Title>
-					</Section.Header>
-					<Section.Body>
-						<Paragraph style={{ color: "var(--ant-primary-1)", }}>
-							Заказывали ранее у нас? Введите номер заказа, чтобы проверить его статус.
-						</Paragraph>
-						<TrackingOrderForm size="large" theme="light" />
-					</Section.Body>
-				</Container>
-			</Section>
-			<CTA />
+			<CTA head="Не можете найти подходящий товар? Задайте вопрос специалисту!" />
 			{
 				news && news.length && (
 					<Section theme="light">
@@ -113,6 +95,24 @@ const HomePage: NextPage<TProps> = ({
 					</Section>
 				)
 			}
+			<Section theme="dark">
+				<Container>
+					<Section.Header>
+						<Title level={3}>
+							<Space>
+								<SearchOutlined />
+								Поиск заказа
+							</Space>
+						</Title>
+					</Section.Header>
+					<Section.Body>
+						<Paragraph style={{ color: "var(--ant-primary-1)", }}>
+							Заказывали ранее у нас? Введите номер заказа, чтобы проверить его статус.
+						</Paragraph>
+						<TrackingOrderForm size="large" theme="light" />
+					</Section.Body>
+				</Container>
+			</Section>
 		</>
 	);
 };

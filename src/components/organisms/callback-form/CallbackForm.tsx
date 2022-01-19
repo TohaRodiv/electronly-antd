@@ -85,7 +85,7 @@ const CallbackForm: FC<TProps> = ({
 						icon={<MailOutlined />}
 						type="primary"
 						htmlType="submit">
-						Заказать
+						Отправить
 					</Button>
 				</Form.Item>
 			</Form>
