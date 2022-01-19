@@ -1,8 +1,8 @@
 export class CreateOrderDTO {
-	fio!: string;
+	fio?: string;
 	tel!: string;
-	email!: string;
-	products!: number[];
+	email?: string;
+	products?: number[];
 	status!: number;
-	comment!: string;
+	comment?: string;
 }

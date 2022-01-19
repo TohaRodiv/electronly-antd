@@ -18,6 +18,7 @@ import Paragraph from "antd/lib/typography/Paragraph";
 import { NextSeo } from "next-seo";
 import { about } from "#data/about";
 import { Hero } from "#molecules/hero/Hero";
+import { CTA } from "#organisms/CTA";
 
 type TProps = {
 	news: TArticles | null
@@ -92,6 +93,7 @@ const HomePage: NextPage<TProps> = ({
 					</Section.Body>
 				</Container>
 			</Section>
+			<CTA />
 			{
 				news && news.length && (
 					<Section theme="light">
