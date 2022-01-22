@@ -145,7 +145,10 @@ var external_next_seo_ = __webpack_require__(6641);
 var StringService = __webpack_require__(3557);
 // EXTERNAL MODULE: ./src/data/about.ts
 var about = __webpack_require__(1879);
+// EXTERNAL MODULE: ./public/images/logo.svg
+var logo = __webpack_require__(2640);
 ;// CONCATENATED MODULE: ./src/components/pages/product-page/ProductPage.tsx
+
 
 
 
@@ -171,6 +174,7 @@ var about = __webpack_require__(1879);
     const handleGoToOrder = (productId)=>{
         router.push(`/order/${productId}`);
     };
+    const previewImage = product.images.length > 0 ? product.images[0].path : logo/* default */.Z;
     return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(external_next_seo_.NextSeo, {
@@ -214,7 +218,7 @@ var about = __webpack_require__(1879);
                                                     })
                                                 },
                                                 alt: name,
-                                                src: images[0].path
+                                                src: previewImage
                                             })
                                         }),
                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)(external_antd_.Col, {
@@ -521,7 +525,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [190,664,791,762,142,261,936], () => (__webpack_exec__(8329)));
+var __webpack_exports__ = __webpack_require__.X(0, [190,664,791,762,142,261,333], () => (__webpack_exec__(8329)));
 module.exports = __webpack_exports__;
 
 })();
