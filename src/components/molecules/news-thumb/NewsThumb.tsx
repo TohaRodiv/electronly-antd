@@ -7,6 +7,7 @@ import { Link } from "#atoms/link";
 import { TArticle } from "src/types/articles/TArticle";
 import { AlignLeftOutlined } from "@ant-design/icons";
 import { Image } from "#atoms/image";
+import LogoImage from "#public/images/logo.svg";
 
 type TProps = {
 	news: TArticle
@@ -18,14 +19,15 @@ const NewsThumb: FC<TProps> = ({
 	...props
 }) => {
 
-	const img = (
+	const previewImage = news.images.length > 0 ? news.images[0].path : LogoImage;
+
+	const imageBlock = (
 		<Link href={`/news/${news.id}`} className={styles["news-thumb__image-link"]}>
-			{/* <img src={news.images[0].path} alt={news.title} className={styles["news-thumb__image"]} /> */}
 			<Image
 				width={360}
 				height={200}
 				objectFit="cover"
-				src={news.images[0].path}
+				src={previewImage}
 				alt={news.title}
 				className={styles["news-thumb__image"]} />
 		</Link>
@@ -36,7 +38,7 @@ const NewsThumb: FC<TProps> = ({
 			bodyStyle={{ flex: "1 1 auto" }}
 			className={styles["news-thumb"]}
 			actions={[<Link href={`/news/${news.id}`} key="news-thumb-image"><AlignLeftOutlined /> Подробнее</Link>]}
-			cover={img}
+			cover={imageBlock}
 			{...props}>
 			<Title level={4} className={styles["news-thumb__title"]}>
 				<Link href={`/news/${news.id}`}>

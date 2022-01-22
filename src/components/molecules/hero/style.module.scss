@@ -67,6 +67,7 @@
   &__description {
     font-weight: 500;
     font-size: 1.05rem;
+	text-shadow: 0 1px 3px #000;
 
     @include media("lg") {
       font-size: 1rem;

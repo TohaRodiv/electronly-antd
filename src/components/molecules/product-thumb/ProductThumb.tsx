@@ -11,6 +11,8 @@ import { Link } from "#atoms/link";
 import { CategoryLink } from "#molecules/category-link";
 import { Image } from "#atoms/image";
 import classNames from "classnames";
+import LogoImage from "#public/images/logo.svg";
+
 
 export type TProductThumbProps = {
 	product: TProduct
@@ -35,14 +37,15 @@ const ProductThumb: FC<TProductThumbProps> = ({
 		className,
 	);
 
-	const img = (
+	const previewImage = product.images.length > 0 ? product.images[0].path : LogoImage;
+
+	const imageBlock = (
 		<Link href={`/product/${product.id}`} className={className}>
-			{/* <img src={product.images[0].path} alt={product.name} className={styles["product-thumb__image"]} /> */}
 			<Image
 				objectFit="contain"
 				width={320}
 				height={200}
-				src={product.images[0].path}
+				src={previewImage}
 				alt={product.name}
 				className={styles["product-thumb__image"]} />
 		</Link>
@@ -63,7 +66,7 @@ const ProductThumb: FC<TProductThumbProps> = ({
 			bodyStyle={{ flex: "1 1 auto", }}
 			className={classes}
 			actions={actions}
-			cover={img}
+			cover={imageBlock}
 			{...props}>
 			<div className={styles["product-thumb__body-inner"]}>
 				<Title level={4} className={styles["product-thumb__title"]}>

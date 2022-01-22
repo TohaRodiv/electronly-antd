@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 import classNames from "classnames";
 import { Link } from "#atoms/link";
 import { Image } from "#atoms/image";
+import LogoImage from "#public/images/logo.svg";
 
 type TProps = {
 	category: TCategory
@@ -18,6 +19,8 @@ const CategoryListItem: FC<TProps> = ({
 
 	const classes = classNames(styles["category-list-item"], className);
 
+	const previewImage = category.length > 0 ? category.images[0].path : LogoImage;
+
 	return (
 		<Link href={`/catalog/${category.id}`} className={classes}>
 			<div className={styles["category-list-item__body"]}>
@@ -26,7 +29,7 @@ const CategoryListItem: FC<TProps> = ({
 					className={styles["category-list-item__image"]}
 					width={150}
 					height={150}
-					src={category.images[0].path}
+					src={previewImage}
 					alt={category.title} />
 				<Title level={4} className={styles["category-list-item__title"]}>{category.title}</Title>
 			</div>

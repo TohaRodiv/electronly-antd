@@ -20,7 +20,7 @@
   }
 
   @include media("lg") {
-    background-image: linear-gradient(120deg, #000 50%, #ddd calc(50% + 1px));
+    background-image: linear-gradient(120deg, #000 50%, #FFF calc(50% + 1px));
   }
 
   &__row {
@@ -67,6 +67,7 @@
   &__description {
     font-weight: 500;
     font-size: 1.05rem;
+	text-shadow: 0 1px 3px #000;
 
     @include media("lg") {
       font-size: 1rem;
