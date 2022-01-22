@@ -19,7 +19,7 @@ const CategoryListItem: FC<TProps> = ({
 
 	const classes = classNames(styles["category-list-item"], className);
 
-	const previewImage = category.length > 0 ? category.images[0].path : LogoImage;
+	const previewImage = category.images.length > 0 ? category.images[0].path : LogoImage;
 
 	return (
 		<Link href={`/catalog/${category.id}`} className={classes}>
