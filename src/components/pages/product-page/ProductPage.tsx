@@ -16,6 +16,7 @@ import { Section } from "#molecules/section";
 import { NextSeo, ProductJsonLd } from "next-seo";
 import { StringService } from "#services/frontend/string/StringService";
 import { about } from "#data/about";
+import LogoImage from "#public/images/logo.svg";
 
 type TProps = {
 	product: TProduct
@@ -45,6 +46,8 @@ const ProductPage: FC<TProps> = ({
 	const handleGoToOrder = (productId: number) => {
 		router.push(`/order/${productId}`);
 	};
+
+	const previewImage = product.images.length > 0 ? product.images[0].path : LogoImage;
 
 	return (
 		<>
@@ -83,7 +86,7 @@ const ProductPage: FC<TProps> = ({
 											mask: <ImagePreviewMask />
 										}}
 										alt={name}
-										src={images[0].path} />
+										src={previewImage} />
 								</Col>
 								<Col span={24} sm={12}>
 									<Title level={3}>{product.name}</Title>
