@@ -32,3 +32,6 @@ TODO.MD
 .env
 .env.development
 .env.production
+.next/cache/webpack/server-development
+.next/cache/webpack/client-development
+.next/static/development
