@@ -20,7 +20,7 @@
   }
 
   @include media("lg") {
-    background-image: linear-gradient(120deg, #000 50%, #DDD calc(50% + 1px));
+    background-image: linear-gradient(120deg, #000 50%, #FFF calc(50% + 1px));
   }
 
   &__row {
