@@ -32,8 +32,7 @@ const PriceCompositor: FC<TProps> = ({
 		}
 	}
 
-
-	const isShowPrimaryPrice = primaryPrice > 0 && typeof crossedPrice === "undefined" ?
+	const isShowPrimaryPrice = primaryPrice > 0 && !!!crossedPrice ?
 		!!primaryPrice :
 		(!!crossedPrice && primaryPrice < Number(crossedPrice));
 

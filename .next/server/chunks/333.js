@@ -306,7 +306,7 @@ const PriceCompositor = ({ primary , crossed , discount ,  })=>{
             primaryPrice = primaryPrice - reductionAmount;
         }
     }
-    const isShowPrimaryPrice = primaryPrice > 0 && typeof crossedPrice === "undefined" ? !!primaryPrice : !!crossedPrice && primaryPrice < Number(crossedPrice);
+    const isShowPrimaryPrice = primaryPrice > 0 && !!!crossedPrice ? !!primaryPrice : !!crossedPrice && primaryPrice < Number(crossedPrice);
     return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(external_antd_.Space, {
         wrap: true,
         children: [
